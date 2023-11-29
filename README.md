@@ -1,5 +1,5 @@
 # Project-3-React
-- Web "PhotoGua5ive" -
+- WEB PHOTOGUA5IVE
 
 
 ## Summary
