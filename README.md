@@ -1,7 +1,6 @@
 # Project-3-React
 - WEB PHOTOGUA5IVE
 
-
 ## Summary
 
 ### Team:
@@ -13,20 +12,3 @@ The project we have chosen has been a photographer's website, where the user can
 When booking an appointment to take photos, the client will have to leave a deposit, which we will give them the option to do by transfer, by payment by debit card or by Bizum.
 Below we are going to show and explain the tables of our DB
 
-### Tables:
-
-### Relationships between tables:
-
-#### One to one:
-
-#### One to many:
-
-#### Many to many:
-
-
-### Authentication Endpoints
-
-## Endpoints
-
-METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION        | POST PARAMS                               | RETURNS
--------|------------------|-------|------|--------------------|-------------------------------------------|--------------------
