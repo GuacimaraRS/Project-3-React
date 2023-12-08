@@ -1,0 +1,25 @@
+/* Home.css */
+.home-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #3498db;
+    color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  h1 {
+    color: #2c3e50;
+  }
+  
+  p {
+    color: #34495e;
+  }
+  
+  @media (max-width: 600px) {
+    .home-container {
+      padding: 30px;
+    }
+  }
+  

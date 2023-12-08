@@ -1,12 +1,15 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
+import SingIn from '../components/SingIn/SingIn';
  const Root = () => {
   return (
     <>
-        <header>Header</header>
+        <Header />
         <Outlet />
-        <footer>Footer</footer>
+        <Footer />
+        <SingIn />
     </>
   );
 }
