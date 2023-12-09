@@ -1,25 +1,33 @@
-/* Home.css */
+
 .home-container {
-    text-align: center;
-    padding: 50px;
-    background-color: #3498db;
-    color: #ecf0f1;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-  }
+  text-align: center;
+  padding: 12%;
+  background-color: #3498db;
+  color: #ecf0f1;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   
-  h1 {
-    color: #2c3e50;
+}
+
+.logo-container {
+  display:flex;
+  justify-content:space-around;
+}
+
+.app-logo {
+  max-width: 100%; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+}
+
+h1 {
+  color: #2c3e50;
+}
+
+p {
+  color: #34495e;
+}
+
+@media (max-width: 600px) {
+  .home-container {
+    padding: 30px;
   }
-  
-  p {
-    color: #34495e;
-  }
-  
-  @media (max-width: 600px) {
-    .home-container {
-      padding: 30px;
-    }
-  }
-  
+}
