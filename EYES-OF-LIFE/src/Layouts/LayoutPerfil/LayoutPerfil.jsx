@@ -11,7 +11,9 @@ const LayoutPerfil = () => {
       <>
         
         <AppBarLayoutPhotographer/>
+
         <Outlet />
+      
         <Footer />
 
         

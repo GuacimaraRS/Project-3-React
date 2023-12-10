@@ -1,25 +1,27 @@
-
 .home-container {
   text-align: center;
-  padding: 13%;
-  background-color: #fffedbe7 ;
+  padding: 283px;
+  background-color: #fffedbe7;
   color: #ecf0f1;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
 }
 
 .logo-container {
-  display:flex;
-  justify-content:space-around;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; /* Alinea los elementos verticalmente en el centro */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una sola línea */
 }
 
 .app-logo {
-  max-width: 100%; /* Ajusta el tamaño máximo de la imagen según tus necesidades */
+  max-width: 100%;
+  height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
 }
 
 h1 {
   color: #2c3e50;
+  margin-bottom: 10px; /* Añade un espacio inferior para separar el título del contenido siguiente */
 }
 
 p {
@@ -28,6 +30,10 @@ p {
 
 @media (max-width: 600px) {
   .home-container {
-    padding: 109px;
+    padding: 20px; /* Ajusta el relleno para dispositivos más pequeños */
+  }
+
+  .logo-container {
+    flex-direction: column; /* Cambia la dirección de la columna para apilar los elementos */
   }
 }
