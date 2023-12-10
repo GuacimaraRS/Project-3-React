@@ -1,35 +1,47 @@
-/* Header.css */
+.app-bar {
+  background: linear-gradient(180deg, #F3EDB9 18.2%, rgba(252, 240, 131, 0.619715) 64.81%, rgba(235, 243, 146, 0.3) 100%);
+  padding: 10px; /* Ajusta el espaciado según tus necesidades */
+}
+
 .app-bar-container {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Centra verticalmente los elementos */
-  padding: 10px;
+  align-items: center;
+  color: #000; /* Color del texto */
+}
+
+h1 {
+  margin: 0;
+  color: #000; /* Color del texto */
 }
 
 .app-logo {
-  max-width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+  max-width: 100px; /* Ajusta el tamaño máximo del logo según tus necesidades */
   height: auto;
-  margin-right: 800px; /* Añade un margen derecho para separar el logo de los demás elementos */
 }
 
 .button-container {
   display: flex;
-  gap: 10px;
+  gap: 10px; /* Ajusta el espacio entre los botones según tus necesidades */
 }
 
 .app-button {
-  padding: 10px 15px;
-  font-size: 14px;
+  background-color: #F3EDB9; /* Color de fondo del botón */
+  color: #000; /* Color del texto del botón */
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-/* Media Queries para pantallas más pequeñas (ajusta según tus necesidades) */
-@media (max-width: 768px) {
+/* Media Query para dispositivos con un ancho máximo de 600px (puedes ajustar este valor según tus necesidades) */
+@media (max-width: 600px) {
   .app-bar-container {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .button-container {
-    margin-top: 10px;
+    margin-top: 10px; /* Ajusta el margen superior según tus necesidades */
   }
 }

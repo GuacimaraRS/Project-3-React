@@ -12,7 +12,7 @@ const HeaderSignIn = () => {
 
         <img src={logoImage} alt="Logo" className="app-logo" />
         <div className="button-container">
-          <button className="app-button">TU PERFIL</button>
+       
 
           <Link to="/">
             <button className="app-button">INICIO</button>
