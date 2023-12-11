@@ -1,27 +1,20 @@
 .home-container {
   text-align: center;
-  padding: 283px;
+  padding: 319px;
   background-color: #fffedbe7;
   color: #ecf0f1;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
-.logo-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center; /* Alinea los elementos verticalmente en el centro */
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una sola línea */
-}
 
-.app-logo {
-  max-width: 100%;
-  height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
-}
+
+
 
 h1 {
   color: #2c3e50;
-  margin-bottom: 10px; /* Añade un espacio inferior para separar el título del contenido siguiente */
+  margin-top: -28px;/* Añade un espacio inferior para separar el título del contenido siguiente */
 }
 
 p {
