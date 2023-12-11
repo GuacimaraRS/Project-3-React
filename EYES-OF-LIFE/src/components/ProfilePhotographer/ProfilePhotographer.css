@@ -1,0 +1,42 @@
+.profile-container {
+    text-align: center;
+    background-color: #85c2e9;
+    border: 4px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    margin: 20px;
+  }
+  
+  .profile-title {
+    font-size: 1.5em; /* Tamaño de fuente ajustado para el título */
+    font-weight: bold;
+    margin-bottom: 20px; /* Espaciado inferior para separar el título del contenido */
+  }
+  
+  .profile-content {
+    margin-top: 20px;
+  }
+  
+  .profile-image {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .profile-name {
+    margin-top: 15px;
+    font-size: 1.8em;
+    color: #333;
+  }
+  
+  .profile-description {
+    margin-top: 10px;
+    color: #666;
+    font-size: 1.2em;
+  }
+  

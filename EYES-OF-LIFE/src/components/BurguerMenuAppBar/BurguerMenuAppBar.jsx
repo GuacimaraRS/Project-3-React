@@ -75,7 +75,7 @@ export default function BurgerMenuAppBar() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
+          <Avatar /> PhotoGua5ive.com
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Avatar /> My account
