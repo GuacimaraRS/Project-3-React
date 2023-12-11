@@ -1,10 +1,13 @@
 /* Header.css */
+
 .app-bar-container {
   display: flex;
   justify-content: space-between;
   align-items: center; /* Centra verticalmente los elementos */
   padding: 10px;
-  background: linear-gradient(100deg, #FAFFC5 0%, #FAFFC5 57%, #EDF7AC 30%, #F6FE9C 35%, #b6bec7 100%);
+  background: linear-gradient(180deg, #FAFFC5 0%, #FAFFC5 57%, #EDF7AC 30%, #F6FE9C 35%, #b6bec7 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .app-logo {
@@ -34,4 +37,3 @@
     margin-top: 10px;
   }
 }
-

@@ -1,9 +1,13 @@
+// AboutUs.jsx
+
 import React from "react";
 import "./AboutUs.css";
+
 const AboutUs = () => {
   return (
-    <div>
-      About Us ¡Bienvenido a [EYES OF LIFE]! En [EYES OF LIFE], estamos
+    <div className="about-us-container">
+      About Us
+      ¡Bienvenido a [EYES OF LIFE]! En [EYES OF LIFE], estamos
       comprometidos en simplificar y enriquecer la conexión entre talentosos
       fotógrafos y clientes apasionados por capturar momentos memorables.
       Nuestra plataforma ha sido diseñada para potenciar la colaboración y

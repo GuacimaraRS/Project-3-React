@@ -1,11 +1,16 @@
 /* Footer.css */
+
 .footer {
-  background: linear-gradient(100deg, #FAFFC5 0%, #FAFFC5 57%, #EDF7AC 30%, #F6FE9C 35%, #b6bec7 100%);
-  color: #ecf0f1;
+  background: linear-gradient(180deg, #FAFFC5 0%, #FAFFC5 57%, #EDF7AC 30%, #F6FE9C 35%, #b6bec7 100%);
+  color: #0c3c48;
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
+
 
 @media (max-width: 600px) {
   .footer {
