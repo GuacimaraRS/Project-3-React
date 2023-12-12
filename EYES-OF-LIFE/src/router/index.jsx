@@ -10,6 +10,7 @@ import ProfilePhotographer from "../pages/ProfilePhotographer/ProfilePhotographe
 import MyDates from "../pages/MyDates/MyDates";
 import MyGalery from "../pages/MyGalery/MyGalery";
 import MyEvents from "../pages/MyEvents/MyEvents";
+import PhotosGaleryPhotographer from "../pages/MyGalery/PhotosGalery/PhotosGaleryPhotographer";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
         path: "/my-galery",
         element: <MyGalery />,
     
+      },
+      {
+        path: "/my-galery/:photoId",
+        element: <PhotosGaleryPhotographer />,
       },
       {
         path: "/my-events",

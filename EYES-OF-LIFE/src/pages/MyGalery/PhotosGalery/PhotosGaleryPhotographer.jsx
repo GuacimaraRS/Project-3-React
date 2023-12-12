@@ -10,25 +10,25 @@ import Typography from "@mui/material/Typography";
 export default function PhotosGaleryPhotographer( { galeryPhotos } ) {
 
   return (
-    <Card sx={{ maxWidth: 345, }} className="card-galery">
-      <CardMedia
-        sx={{ height: 140 }}
-        image="https://album.mediaset.es/eimg/2018/07/25/dfeYZpZjf7nuiELacKuPw7.jpg"
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-        dasdadasd
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <Card sx={{ maxWidth: 345,  }} className="card-container">
+    <CardMedia
+      sx={{ height: 140 }}
+      image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+      title="green iguana"
+    />
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="div">
+        PATATA BOMBITA
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        ES LO QUE HAY
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button size="small">Share</Button>
+      <Button size="small">Learn More</Button>
+    </CardActions>
+  </Card>
+  
   );
 }
