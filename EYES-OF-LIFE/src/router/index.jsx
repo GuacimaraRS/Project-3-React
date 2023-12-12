@@ -56,6 +56,7 @@ const router = createBrowserRouter([
       {
         path: "/my-galery",
         element: <MyGalery />,
+    
       },
       {
         path: "/my-events",
