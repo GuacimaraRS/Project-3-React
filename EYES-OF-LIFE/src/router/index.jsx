@@ -11,6 +11,8 @@ import ProfilePhotographer from "../pages/ProfilePhotographer/ProfilePhotographe
 import MyDates from "../pages/MyDates/MyDates";
 import MyGalery from "../pages/MyGalery/MyGalery";
 import MyEvents from "../pages/MyEvents/MyEvents";
+import EventsImages from "../pages/EventsImages/EventsImages";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,7 +66,31 @@ const router = createBrowserRouter([
         path: "/my-events",
         element: <MyEvents />,
       },
-    ], 
+      {
+        path: '/events-boda',
+        element: <EventsImages tipo="Boda" />, 
+      },
+      {
+        path: '/events-cumpleaños',
+        element: <EventsImages tipo="Cumpleaños" />, 
+      },
+      {
+        path: '/events-bautizo',
+        element: <EventsImages tipo="Bautizo" />,
+      },
+      {
+        path: '/events-comuniones',
+        element: <EventsImages tipo="Comuniones" />,
+      },
+      {
+        path: '/events-empresa',
+        element: <EventsImages tipo="Empresa" />,
+      },
+      {
+        path: '/events-bebes',
+        element: <EventsImages tipo="Bebes" />,
+      },
+    ],
     
     
 
