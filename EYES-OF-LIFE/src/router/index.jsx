@@ -2,16 +2,15 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Root from "../Layouts/LayoutHome/Layouts";
 import AboutUs from "../pages/AboutUs/AboutUs";
-import SignIn from "../pages/SingIn/SignIn";
-import SignUp from "../pages/SignUp/SignUp";
+import SignIn from "../components/SingIn/SignIn";
+import SignUp from "../components/SignUp/SignUp";
+
 import LayoutPerfil from "../Layouts/LayoutPerfil/LayoutPerfil";
 import MyMessages from "../pages/MyMessages/MyMessages";
 import ProfilePhotographer from "../pages/ProfilePhotographer/ProfilePhotographer";
 import MyDates from "../pages/MyDates/MyDates";
 import MyGalery from "../pages/MyGalery/MyGalery";
 import MyEvents from "../pages/MyEvents/MyEvents";
-import PhotosGaleryPhotographer from "../pages/MyGalery/PhotosGalery/PhotosGaleryPhotographer";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -67,7 +66,11 @@ const router = createBrowserRouter([
         path: "/my-events",
         element: <MyEvents />,
       },
-    ],
+    ], 
+    
+    
+
+    
   },
 ]);
 
