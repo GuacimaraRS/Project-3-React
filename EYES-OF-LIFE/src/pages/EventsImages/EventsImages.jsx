@@ -55,28 +55,27 @@ const EventsImages = ({ tipo }) => {
         <div className="description-container">
           <h2>Imágenes de Eventos: {tipo}</h2>
         </div>
-        <div className="navigation-arrows">
+        <div className="navigation-arrows navigation-arrows-first-row">
           <button onClick={handlePrevFirstRow}>&lt;</button>
           <button onClick={handleNextFirstRow}>&gt;</button>
         </div>
         <div className="image-row">
+          {/* Primer fila de imágenes */}
           {firstRow.map((item, index) => (
             <div key={index} className="image-item">
-              <p>Boda de Lorenzo y María. Fecha: 12/03/2023</p>
               <p>{item.description}</p>
               <img src={item.image} alt={`${tipo} ${index + 1}`} />
             </div>
           ))}
         </div>
-
-        <div className="navigation-arrows">
+        <div className="navigation-arrows navigation-arrows-second-row">
           <button onClick={handlePrevSecondRow}>&lt;</button>
           <button onClick={handleNextSecondRow}>&gt;</button>
         </div>
         <div className="image-row">
+          {/* Segunda fila de imágenes */}
           {secondRow.map((item, index) => (
             <div key={index} className="image-item">
-              <p>Boda de Gonzalo y Laura. Fecha: 12/03/2023</p>
               <p>{item.description}</p>
               <img src={item.image} alt={`${tipo} ${index + 4}`} />
             </div>
