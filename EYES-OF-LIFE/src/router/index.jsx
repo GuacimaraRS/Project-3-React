@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Root from "../Layouts/LayoutHome/Layouts";
 import AboutUs from "../pages/AboutUs/AboutUs";
-import SignIn from "../components/SingIn/SignIn";
-import SignUp from "../components/SignUp/SignUp";
+import SignIn from "../pages/SingIn/SignIn";
+import SignUp from "../pages/SignUp/SignUp";
 
 import LayoutPerfil from "../Layouts/LayoutPerfil/LayoutPerfil";
 import MyMessages from "../pages/MyMessages/MyMessages";
