@@ -27,59 +27,63 @@ const EventsImages = ({ tipo }) => {
   };
 
   const images = imagesByType[tipo] || [];
-  const [currentImageFirstRow, setCurrentImageFirstRow] = useState(0);
-  const [currentImageSecondRow, setCurrentImageSecondRow] = useState(0);
+  const imagesPerRow = 3;
+  const rowsPerPage = 2;
+  const totalImages = images.length;
 
-  const handleNextFirstRow = () => {
-    console.log('Next First Row Clicked');
-    setCurrentImageFirstRow((prev) => (prev + 1) % firstRow.length);
+  const [currentRow, setCurrentRow] = useState(0);
+  const [currentRow2, setCurrentRow2] = useState(0);
+
+  const handleNextRow = () => {
+    setCurrentRow((prevRow) => (prevRow + 1) % Math.ceil(totalImages / imagesPerRow));
   };
 
-  const handlePrevFirstRow = () => {
-    setCurrentImageFirstRow((prev) => (prev - 1 + firstRow.length) % firstRow.length);
+  const handlePrevRow = () => {
+    setCurrentRow((prevRow) => (prevRow - 1 + Math.ceil(totalImages / imagesPerRow)) % Math.ceil(totalImages / imagesPerRow));
   };
 
-  const handleNextSecondRow = () => {
-    setCurrentImageSecondRow((prev) => (prev + 1) % secondRow.length);
+  const handleNextRow2 = () => {
+    setCurrentRow2((prevRow) => (prevRow + 1) % Math.ceil(totalImages / imagesPerRow));
   };
 
-  const handlePrevSecondRow = () => {
-    setCurrentImageSecondRow((prev) => (prev - 1 + secondRow.length) % secondRow.length);
+  const handlePrevRow2 = () => {
+    setCurrentRow2((prevRow) => (prevRow - 1 + Math.ceil(totalImages / imagesPerRow)) % Math.ceil(totalImages / imagesPerRow));
   };
 
-  const firstRow = images.slice(0, 3);
-  const secondRow = images.slice(3, 6);
+  const startIndex = currentRow * imagesPerRow;
+  const endIndex = Math.min(startIndex + imagesPerRow, totalImages);
+  const visibleImages = images.slice(startIndex, endIndex);
+
+  const startIndex2 = currentRow2 * imagesPerRow;
+  const endIndex2 = Math.min(startIndex2 + imagesPerRow, totalImages);
+  const visibleImages2 = images.slice(startIndex2, endIndex2);
 
   return (
-    <div>
-      <div className="image-events">
-        <div className="description-container">
-          <h2>Imágenes de Eventos: {tipo}</h2>
-        </div>
-        <div className="navigation-arrows navigation-arrows-first-row">
-        <button onClick={handlePrevFirstRow}>&lt;</button>  
-        <button onClick={handleNextFirstRow}>&gt;</button>
-        </div>
-        <div className="image-row">
-          {/* Primer fila de imágenes */}
-          {firstRow.map((item, index) => (
-            <div key={index} className="image-item">
-              <img src={item.image || item} alt={`${tipo} ${index + 1}`} />
-            </div>
-          ))}
-        </div>
-        <div className="navigation-arrows navigation-arrows-second-row">
-          <button onClick={handlePrevSecondRow}>&lt;</button>
-          <button onClick={handleNextSecondRow}>&gt;</button>
-        </div>
-        <div className="image-row">
-          {/* Segunda fila de imágenes */}
-          {secondRow.map((item, index) => (
-            <div key={index} className="image-item">
-              <img src={item.image || item} alt={`${tipo} ${index + 4}`} />
-            </div>
-          ))}
-        </div>
+    <div className="image-events">
+      <div className="description-container">
+        <h2>Imágenes de Eventos: {tipo}</h2>
+      </div>
+      <div className="navigation-arrows navigation-arrows-first-row">
+        <button onClick={handlePrevRow}>&lt;</button>
+        <button onClick={handleNextRow}>&gt;</button>
+      </div>
+      <div className="image-row">
+        {visibleImages.map((item, index) => (
+          <div key={index} className="image-item">
+            <img src={item.image || item} alt={`${tipo} ${index + 1}`} />
+          </div>
+        ))}
+      </div>
+      <div className="navigation-arrows navigation-arrows-second-row">
+        <button onClick={handlePrevRow2}>&lt;</button>
+        <button onClick={handleNextRow2}>&gt;</button>
+      </div>
+      <div className="image-row">
+        {visibleImages2.map((item, index) => (
+          <div key={index} className="image-item">
+            <img src={item.image || item} alt={`${tipo} ${index + 1}`} />
+          </div>
+        ))}
       </div>
     </div>
   );

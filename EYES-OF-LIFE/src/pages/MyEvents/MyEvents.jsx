@@ -10,61 +10,42 @@ import Pgbebes from '../../assets/images/Pgbebes.webp';
 
 const MyEvents = () => {
   return (
-      <div className="evento-container">
-        <div className="evento">
+    <div className="evento-container">
+      <Link to="/events-boda" className="evento">
         <h2>Bodas</h2>
         <img src={Pgboda} alt="Boda" />
+        <div className="hover-text">Haz click aquí</div>
+      </Link>
 
-          <Link to="/events-boda" className="ver-galeria">
-            Click aquí para ver galería
-          </Link>
-        </div>
+      <Link to="/events-cumpleaños" className="evento">
+        <h2>Cumpleaños</h2>
+        <img src={Pgcumple} alt="Cumpleaños" />
+        <div className="hover-text">Haz click aquí</div>
+      </Link>
 
-        <div className="evento">
-        <h2>Bodas</h2>
-          <img src={Pgcumple} alt="Cumpleaños" />
-          <Link to="/events-cumpleaños" className="ver-galeria">
-            Click aquí para ver galería
-          </Link>
-        </div>
-
-        <div className="evento">
+      <Link to="/events-bautizo" className="evento">
         <h2>Bautizos</h2>
-          <img src={Pgbautizo} alt="Bautizo" />
-          
-          <Link to="/events-bautizo" className="ver-galeria">
-            Click aquí para ver galería
-          </Link>
-        </div>
-      
+        <img src={Pgbautizo} alt="Bautizo" />
+        <div className="hover-text">Haz click aquí</div>
+      </Link>
 
-      
-        <div className="evento">
+      <Link to="/events-comuniones" className="evento">
         <h2>Comuniones</h2>
-          <img src={Pgcomunion} alt="Comuniones" />
-          
-          <Link to="/events-comuniones" className="ver-galeria">
-            Click aquí para ver galería
-          </Link>
-        </div>
+        <img src={Pgcomunion} alt="Comuniones" />
+        <div className="hover-text">Haz click aquí</div>
+      </Link>
 
-        <div className="evento">
+      <Link to="/events-empresa" className="evento">
         <h2>Empresas</h2>
-          <img src={Pgempresa} alt="Empresa" />
-          
-          <Link to="/events-empresa" className="ver-galeria">
-            Click aquí para ver galería
-          </Link>
-        </div>
+        <img src={Pgempresa} alt="Empresa" />
+        <div className="hover-text">Haz click aquí</div>
+      </Link>
 
-        <div className="evento">
+      <Link to="/events-bebes" className="evento">
         <h2>Bebés</h2>
-          <img src={Pgbebes} alt="Bebés" />
-          <Link to="/events-bebes" className="ver-galeria">
-            Click aquí para ver galería
-          </Link>
-        </div>
-      
+        <img src={Pgbebes} alt="Bebés" />
+        <div className="hover-text">Haz click aquí</div>
+      </Link>
     </div>
   );
 };
