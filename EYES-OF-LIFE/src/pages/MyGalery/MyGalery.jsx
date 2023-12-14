@@ -1,30 +1,29 @@
-import  {useState, useEffect } from 'react'
-import './MyGalery.css'
-
+import { useState, useEffect } from 'react';
+import './MyGalery.css';
 import { getPhotosGaleryPhotographer } from '../../services/getPhotosGaleryPhotographer';
 import ListPhotosGalery from './ListPhotosGalery/ListPhotosGalery';
-
 const MyGalery = () => {
-  const [photosGaleryPhotographer, setPhotosGaleryPhotographer] = useState([])
+  const [photosGaleryPhotographer, setPhotosGaleryPhotographer] = useState([]);
+
   useEffect(() => {
     const fetchPhotosGaleryPhotographer = async () => {
       try {
-          const result = await getPhotosGaleryPhotographer()
-          setPhotosGaleryPhotographer(result)
+        const result = await getPhotosGaleryPhotographer();
+        const limitedPhotos = result.slice(0, 50);
+        setPhotosGaleryPhotographer(limitedPhotos);
       } catch (error) {
-        console.error(error.message)
+        console.error(error.message);
       }
-    }
-    fetchPhotosGaleryPhotographer()
-  },[])
-console.log(photosGaleryPhotographer)
+    };
+    fetchPhotosGaleryPhotographer();
+  }, []);
+  console.log(photosGaleryPhotographer);
+  return (
+    <>
+      <div className='title'>MyGalery</div>
+      <ListPhotosGalery photosGalery={photosGaleryPhotographer} />
+    </>
+  );
+};
 
-
-  return (<>
-    <div className='title'>MyGalery</div>
-    <ListPhotosGalery photosGalery={photosGaleryPhotographer} />
-   </>
-  )
-}
-
-export default MyGalery
+export default MyGalery;

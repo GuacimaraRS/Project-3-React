@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Root from "../Layouts/LayoutHome/Layouts";
 import AboutUs from "../pages/AboutUs/AboutUs";
-import SignIn from "../components/SingIn/SignIn";
-import SignUp from "../components/SignUp/SignUp";
+import SignIn from "../pages/SingIn/SignIn";
+import SignUp from "../pages/SignUp/SignUp";
 
 import LayoutPerfil from "../Layouts/LayoutPerfil/LayoutPerfil";
 import MyMessages from "../pages/MyMessages/MyMessages";
@@ -11,6 +11,8 @@ import ProfilePhotographer from "../pages/ProfilePhotographer/ProfilePhotographe
 import MyDates from "../pages/MyDates/MyDates";
 import MyGalery from "../pages/MyGalery/MyGalery";
 import MyEvents from "../pages/MyEvents/MyEvents";
+import EventsImages from "../pages/EventsImages/EventsImages";
+import PhotosGaleryPhotographer from "../pages/MyGalery/PhotosGalery/PhotosGaleryPhotographer";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -66,7 +68,31 @@ const router = createBrowserRouter([
         path: "/my-events",
         element: <MyEvents />,
       },
-    ], 
+      {
+        path: '/events-boda',
+        element: <EventsImages tipo="Boda" />, 
+      },
+      {
+        path: '/events-cumpleaños',
+        element: <EventsImages tipo="Cumpleaños" />, 
+      },
+      {
+        path: '/events-bautizo',
+        element: <EventsImages tipo="Bautizo" />,
+      },
+      {
+        path: '/events-comuniones',
+        element: <EventsImages tipo="Comuniones" />,
+      },
+      {
+        path: '/events-empresa',
+        element: <EventsImages tipo="Empresa" />,
+      },
+      {
+        path: '/events-bebes',
+        element: <EventsImages tipo="Bebes" />,
+      },
+    ],
     
     
 

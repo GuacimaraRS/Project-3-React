@@ -5,20 +5,20 @@ import bod from '../../assets/images/bod.jpeg';
 import boda from '../../assets/images/boda.jpeg';
 import Boda from '../../assets/images/Boda.jpg';
 import bodas from '../../assets/images/bodas.jpeg';
+import BO from '../../assets/images/BO.jpeg';
 import './EventsImages.css';
 
 const EventsImages = ({ tipo }) => {
   const imagesByType = {
     'Boda': [
-      
-      { image: b},
-      { image: bo},
-      { image: bod},
-      { image: boda},
-      { image: Boda},
-      { image: bodas},
+      { image: b },
+      { image: bo },
+      { image: bod },
+      { image: BO },
+      { image: boda },
+      { image: Boda },
+      { image: bodas },
     ],
-    
     'Cumpleaños': ['cumple1.jpg', 'cumple2.jpg', 'cumple3.jpg'],
     'Bautizo': ['bautizo1.jpg', 'bautizo2.jpg', 'bautizo3.jpg'],
     'Comuniones': ['comunion1.jpg', 'comunion2.jpg', 'comunion3.jpg'],
@@ -31,6 +31,7 @@ const EventsImages = ({ tipo }) => {
   const [currentImageSecondRow, setCurrentImageSecondRow] = useState(0);
 
   const handleNextFirstRow = () => {
+    console.log('Next First Row Clicked');
     setCurrentImageFirstRow((prev) => (prev + 1) % firstRow.length);
   };
 
@@ -56,15 +57,14 @@ const EventsImages = ({ tipo }) => {
           <h2>Imágenes de Eventos: {tipo}</h2>
         </div>
         <div className="navigation-arrows navigation-arrows-first-row">
-          <button onClick={handlePrevFirstRow}>&lt;</button>
-          <button onClick={handleNextFirstRow}>&gt;</button>
+        <button onClick={handlePrevFirstRow}>&lt;</button>  
+        <button onClick={handleNextFirstRow}>&gt;</button>
         </div>
         <div className="image-row">
           {/* Primer fila de imágenes */}
           {firstRow.map((item, index) => (
             <div key={index} className="image-item">
-              <p>{item.description}</p>
-              <img src={item.image} alt={`${tipo} ${index + 1}`} />
+              <img src={item.image || item} alt={`${tipo} ${index + 1}`} />
             </div>
           ))}
         </div>
@@ -76,8 +76,7 @@ const EventsImages = ({ tipo }) => {
           {/* Segunda fila de imágenes */}
           {secondRow.map((item, index) => (
             <div key={index} className="image-item">
-              <p>{item.description}</p>
-              <img src={item.image} alt={`${tipo} ${index + 4}`} />
+              <img src={item.image || item} alt={`${tipo} ${index + 4}`} />
             </div>
           ))}
         </div>
