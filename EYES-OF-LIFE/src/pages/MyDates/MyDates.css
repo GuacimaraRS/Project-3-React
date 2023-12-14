@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #fffedbc1;
   }
   
 
@@ -19,6 +20,7 @@ body {
   }
   
   .appointment-form {
+    margin-top: 100px;
     max-width: 400px;
     width: 100%;
     margin-right: 20px;
@@ -41,8 +43,8 @@ body {
   }
   
   button {
-    background-color: #4caf50;
-    color: #fff;
+    background-color: #FFFEDB;
+    color: #0E3863;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -51,11 +53,12 @@ body {
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #FFFEDB;
   }
   
   .calendar {
-    max-width: 600px;
+    margin-top: 100px;
+    max-width: 700px;
     width: 100%;
   }
   
@@ -66,16 +69,16 @@ body {
   }
   
   .calendar th, .calendar td {
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
     padding: 10px;
     text-align: center;
   }
   
   .calendar th {
-    background-color: #f2f2f2;
+    background-color: #e98f7d;
   }
   
   td.booked {
-    background-color: #ffcccb; /* Color para citas reservadas */
+    background-color: #ef9e9d; /* Color para citas reservadas */
   }
   

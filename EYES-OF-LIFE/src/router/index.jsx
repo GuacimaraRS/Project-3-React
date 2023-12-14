@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-   
+
       {
         path: "/about-us",
         element: <AboutUs />,
@@ -33,16 +33,13 @@ const router = createBrowserRouter([
       {
         path: "/sign-in",
         element: <SignIn />,
-      }
+      },
     ],
   },
-  
 
-
-  
   {
     path: "/",
-    element: <LayoutPerfil/>,
+    element: <LayoutPerfil />,
     children: [
       {
         path: "/profile-photographer",
@@ -59,6 +56,11 @@ const router = createBrowserRouter([
       {
         path: "/my-galery",
         element: <MyGalery />,
+    
+      },
+      {
+        path: "/my-galery/:photoId",
+        element: <PhotosGaleryPhotographer />,
       },
       {
         path: "/my-events",
@@ -70,7 +72,6 @@ const router = createBrowserRouter([
 
     
   },
- 
 ]);
 
 export default router;
