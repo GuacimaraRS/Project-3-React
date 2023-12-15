@@ -1,90 +1,51 @@
-import React, { useState } from 'react';
-import b from '../../assets/images/b.jpeg';
-import bo from '../../assets/images/bo.jpeg';
-import bod from '../../assets/images/bod.jpeg';
-import boda from '../../assets/images/boda.jpeg';
-import Boda from '../../assets/images/Boda.jpg';
-import bodas from '../../assets/images/bodas.jpeg';
-import BO from '../../assets/images/BO.jpeg';
+import React from 'react';
 import './EventsImages.css';
+import { Link } from 'react-router-dom';
 
-const EventsImages = ({ tipo }) => {
-  const imagesByType = {
-    'Boda': [
-      { image: b },
-      { image: bo },
-      { image: bod },
-      { image: BO },
-      { image: boda },
-      { image: Boda },
-      { image: bodas },
-    ],
-    'Cumpleaños': ['cumple1.jpg', 'cumple2.jpg', 'cumple3.jpg'],
-    'Bautizo': ['bautizo1.jpg', 'bautizo2.jpg', 'bautizo3.jpg'],
-    'Comuniones': ['comunion1.jpg', 'comunion2.jpg', 'comunion3.jpg'],
-    'Empresa': ['empresa1.jpg', 'empresa2.jpg', 'empresa3.jpg'],
-    'Bebes': ['bebes1.jpg', 'bebes2.jpg', 'bebes3.jpg'],
-  };
-
-  const images = imagesByType[tipo] || [];
-  const imagesPerRow = 3;
-  const rowsPerPage = 2;
-  const totalImages = images.length;
-
-  const [currentRow, setCurrentRow] = useState(0);
-  const [currentRow2, setCurrentRow2] = useState(0);
-
-  const handleNextRow = () => {
-    setCurrentRow((prevRow) => (prevRow + 1) % Math.ceil(totalImages / imagesPerRow));
-  };
-
-  const handlePrevRow = () => {
-    setCurrentRow((prevRow) => (prevRow - 1 + Math.ceil(totalImages / imagesPerRow)) % Math.ceil(totalImages / imagesPerRow));
-  };
-
-  const handleNextRow2 = () => {
-    setCurrentRow2((prevRow) => (prevRow + 1) % Math.ceil(totalImages / imagesPerRow));
-  };
-
-  const handlePrevRow2 = () => {
-    setCurrentRow2((prevRow) => (prevRow - 1 + Math.ceil(totalImages / imagesPerRow)) % Math.ceil(totalImages / imagesPerRow));
-  };
-
-  const startIndex = currentRow * imagesPerRow;
-  const endIndex = Math.min(startIndex + imagesPerRow, totalImages);
-  const visibleImages = images.slice(startIndex, endIndex);
-
-  const startIndex2 = currentRow2 * imagesPerRow;
-  const endIndex2 = Math.min(startIndex2 + imagesPerRow, totalImages);
-  const visibleImages2 = images.slice(startIndex2, endIndex2);
+const EventsImages = () => {
+  const eventsData = [
+    {
+      name: 'Boda estándar',
+      prices: {
+        price: 500,
+        description: 'Cobertura fotográfica completa únicamente de la boda',
+        description2: 'Haz click aquí para seleccionar',
+      },
+    },
+    {
+      name: 'Boda Premium',
+      prices: {
+        price: 700,
+        description: 'Cobertura de la boda y la celebración combinadas',
+        description2: 'Haz click aquí para seleccionar',
+      },
+    },
+    {
+      name: 'Boda Deluxe',
+      prices: {
+        price: 1100,
+        description: 'Cobertura completa: Boda más celebración más luna de miel con un precio más reducido',
+        description2: 'Haz click aquí para seleccionar',
+      },
+    },
+  ];
 
   return (
-    <div className="image-events">
-      <div className="description-container">
-        <h2>Imágenes de Eventos: {tipo}</h2>
-      </div>
-      <div className="navigation-arrows navigation-arrows-first-row">
-        <button onClick={handlePrevRow}>&lt;</button>
-        <button onClick={handleNextRow}>&gt;</button>
-      </div>
-      <div className="image-row">
-        {visibleImages.map((item, index) => (
-          <div key={index} className="image-item">
-            <img src={item.image || item} alt={`${tipo} ${index + 1}`} />
+    <div className="events-container">
+      {eventsData.map((event, index) => (
+        <Link to={`/my-dates?event=${event.name}`} key={index} className="evento">
+          <div className="evento-card">
+            <h2>{event.name}</h2>
+            <ul>
+              <li>
+                <div>Precio: ${event.prices.price}</div>
+                <div>Descripción: {event.prices.description}</div>
+                <div className="second-description">{event.prices.description2}</div>
+              </li>
+            </ul>
           </div>
-        ))}
-      </div>
-      <div className="navigation-arrows navigation-arrows-second-row">
-        <button onClick={handlePrevRow2}>&lt;</button>
-        <button onClick={handleNextRow2}>&gt;</button>
-      </div>
-      <div className="image-row">
-        {visibleImages2.map((item, index) => (
-          <div key={index} className="image-item">
-            <img src={item.image || item} alt={`${tipo} ${index + 1}`} />
-          </div>
-        ))}
-      </div>
+        </Link>
+      ))}
     </div>
   );
 };

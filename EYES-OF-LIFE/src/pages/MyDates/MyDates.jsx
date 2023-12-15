@@ -1,69 +1,52 @@
-// MyDates.jsx
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Calendar from 'react-calendar';
 import './MyDates.css';
-
-const Calendar = ({ appointments, hours }) => {
-  const days = ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do'];
-
-  const renderAppointmentButton = (day, hour) => {
-    const key = `${day}-${hour}`;
-    const isBooked = appointments[key];
-
-    return (
-      <td key={key} className={isBooked ? 'booked' : ''}>
-        {isBooked ? hour : ''}
-      </td>
-    );
-  };
-
-  return (
-    <div className="calendar">
-      <h2>Calendario</h2>
-      <table className="calendar-table">
-        <thead>
-          <tr>
-            <th></th>
-            {days.map((day) => (
-              <th key={day}>{day}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {hours.map((hour) => (
-            <tr key={hour}>
-              <td>{hour}</td>
-              {days.map((day) => renderAppointmentButton(day, hour))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
 
 const MyDates = () => {
   const [name, setName] = useState('');
-  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
-  const [appointments, setAppointments] = useState({});
-  const hours = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'];
+  const [selectedEvent, setSelectedEvent] = useState('Boda'); // Cambiado a 'Boda' como valor predeterminado
+  const [selectedPack, setSelectedPack] = useState('Boda deluxe'); // Cambiado a 'Boda deluxe' como valor predeterminado
+  const [appointments, setAppointments] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const key = `${selectedDate}-${selectedTime}`;
-    const updatedAppointments = { ...appointments, [key]: true };
-    setAppointments(updatedAppointments);
+  useEffect(() => {
+    const storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
+    setAppointments(storedAppointments);
+  }, []);
+
+  const handleSubmit = () => {
+    const newAppointment = {
+      name,
+      date: selectedDate,
+      time: selectedTime,
+      event: selectedEvent,
+      pack: selectedPack,
+    };
+    setAppointments([...appointments, newAppointment]);
+    updateLocalCalendar([...appointments, newAppointment]);
     setName('');
-    setSelectedDate('');
     setSelectedTime('');
+    setSelectedEvent('Boda'); // Restaurar el valor predeterminado para el próximo evento
+    setSelectedPack('Boda deluxe'); // Restaurar el valor predeterminado para el próximo pack
+  };
+
+  const handleDelete = (index) => {
+    const updatedAppointments = [...appointments];
+    updatedAppointments.splice(index, 1);
+    setAppointments(updatedAppointments);
+    updateLocalCalendar(updatedAppointments);
+  };
+
+  const updateLocalCalendar = (appointments) => {
+    localStorage.setItem('appointments', JSON.stringify(appointments));
   };
 
   return (
     <div className="my-dates-container">
       <div className="appointment-form">
         <h2>Reservar Cita</h2>
-        <form onSubmit={handleSubmit}>
+        <div className="form-group">
           <label htmlFor="name">Nombre:</label>
           <input
             type="text"
@@ -72,16 +55,15 @@ const MyDates = () => {
             onChange={(e) => setName(e.target.value)}
             required
           />
-
+        </div>
+        <div className="form-group">
           <label htmlFor="date">Fecha:</label>
-          <input
-            type="date"
-            id="date"
+          <Calendar
+            onChange={(date) => setSelectedDate(date)}
             value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-            required
           />
-
+        </div>
+        <div className="form-group">
           <label htmlFor="time">Hora:</label>
           <select
             id="time"
@@ -89,18 +71,76 @@ const MyDates = () => {
             onChange={(e) => setSelectedTime(e.target.value)}
             required
           >
-            {hours.map((hour) => (
+            {['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'].map((hour) => (
               <option key={hour} value={hour}>
                 {hour}
               </option>
             ))}
           </select>
-
-          <button type="submit">Reservar Cita</button>
-        </form>
+        </div>
+        <div className="form-group">
+          <label htmlFor="event">Evento:</label>
+          <select
+            id="event"
+            value={selectedEvent}
+            onChange={(e) => setSelectedEvent(e.target.value)}
+            required
+          >
+            <option value="Boda">Boda</option>
+            <option value="Comunión">Comunión</option>
+            <option value="Bautizo">Bautizo</option>
+            <option value="Bebé">Bebé</option>
+            <option value="Empresa">Empresa</option>
+            <option value="Cumpleaños">Cumpleaños</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="pack">Pack:</label>
+          <select
+            id="pack"
+            value={selectedPack}
+            onChange={(e) => setSelectedPack(e.target.value)}
+            required
+          >
+            <option value="Boda deluxe">Boda deluxe</option>
+            <option value="Premium">Premium</option>
+            <option value="Deluxe">Deluxe</option>
+          </select>
+        </div>
+        <button type="button" onClick={handleSubmit}>
+          Reservar Cita
+        </button>
       </div>
 
-      <Calendar appointments={appointments} hours={hours} />
+      <div className="divider" />
+
+      <div className="citas-reservadas">
+        <h2>Citas Reservadas</h2>
+        {appointments.map((appointment, index) => (
+          <div key={index} className="appointment">
+            <div>
+              <strong>Nombre:</strong> {appointment.name}
+            </div>
+            <div>
+              <strong>Fecha:</strong> {new Date(appointment.date).toLocaleDateString()}
+            </div>
+            <div>
+              <strong>Hora:</strong> {appointment.time}
+            </div>
+            <div>
+              <strong>Evento:</strong> {appointment.event}
+            </div>
+            <div>
+              <strong>Pack:</strong> {appointment.pack}
+            </div>
+            <div>
+              <button type="button" onClick={() => handleDelete(index)}>
+                Eliminar Reserva
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

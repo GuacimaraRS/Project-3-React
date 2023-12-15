@@ -6,23 +6,23 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-color: #fffedbc1;
+  align-items: center;
+  justify-content: center;
 }
 
 .my-dates-container {
   display: flex;
-  width: 70%;
-  flex-wrap: wrap;
-  justify-content:space-between;
-  align-items: flex-start;
-  padding: 20px;
-
+  align-items: center;
+  flex-direction: column;
+  max-width: 1000px;
+  width: 100%;
+  padding: 85px;
 }
 
-
 .appointment-form {
-  margin-top: 20px; 
   max-width: 400px;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 form {
@@ -30,17 +30,13 @@ form {
   flex-direction: column;
 }
 
-label {
-  margin: 10px 0;
-}
 
 input,
 select,
 button {
   padding: 10px;
-  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 button {
@@ -48,40 +44,23 @@ button {
   color: #0E3863;
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 23px;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #fbd081; /* Ajustado para un color más atractivo */
+  background-color: #fbd081;
 }
-
-
 
 .calendar {
-  margin-top: 20px; /* Reducido para un mejor espacio */
-  max-width: 700px;
+  max-width: 800px;
   width: 100%;
+  margin-bottom: 20px;
 }
 
-.calendar-table {
+.citas-reservadas {
+  align-items: center;
+  max-width: 1000px;
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+  margin-left: 65%;
 }
-
-.calendar th,
-.calendar td {
-  border: 1px solid #000000;
-  padding: 10px;
-  text-align: center;
-}
-
-.calendar th {
-  background-color: #e98f7d;
-}
-
-td.booked {
-  background-color: #ef9e9d; /* Color para citas reservadas */
-}
-  
