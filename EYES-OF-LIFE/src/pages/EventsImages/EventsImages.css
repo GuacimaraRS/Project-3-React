@@ -1,74 +1,53 @@
-body, html {
-    margin: auto;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    
-  }
+html, body, #root {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.image-events {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px;
-    position:relative;
-    
-  }
 
-  .image-row {
-     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 20px;
-    background-color: antiquewhite;
-    margin-bottom: 70px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 250px;
+}
 
-  }
-  
-  .image-item {
-    text-align: center;
-    margin: 20px;
-  }
-  
-  .image-item img {
-    text-align: center;
-    width: 100%;
-    border-radius: 10px;
-  }
-  
-  .description-container {
-    margin-top: 20px;
-  }
-  
-  .date-name {
-    font-weight: bold;
-  }
 
-  
+.evento {
+  font-size: 1.5em;
+  letter-spacing: 2.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  margin: 50px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  color: #045ec4;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-  
-  .navigation-arrows button {
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #3498db;
-  }
 
-  .navigation-arrows-first-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px; 
-  }
-  
-  /* Estilos específicos para las flechas de la segunda fila */
-  .navigation-arrows-second-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px;
-  }
+.evento:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+
+.evento-card ul {
+  padding: 0;
+  list-style: none;
+}
+
+.evento-card ul li div {
+  margin-bottom: 40px;
+}

@@ -1,72 +1,57 @@
-/* Home.css */
-
-/* Estilos generales */
 .home-container {
   text-align: center;
-  margin: 0 auto;
+}
+
+.welcome-container {
+  color: navy;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.eyes-of-life-container,
+.galleries-container {
+  margin: 2rem auto;
   max-width: 800px;
-  padding: 20px;
 }
 
-
-
-
-
-.eyes-of-life-logo {
-  width: 100px;
-  height: 100px;
- 
-}
-
-/* Estilos para el contenedor "eyes-of-life" */
 .eyes-of-life-container {
- 
-  margin: 0 auto;
- 
   background-color: #f9f0d3;
   color: blue;
   border-radius: 15px;
- 
+  padding: 20px;
 }
 
-/* Estilos para el contenedor de galerías */
 .galleries-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
   background-color: #f9f0d3e5;
   color: blue;
-  border-radius: 15px;
-  margin-top: 20px;
+  padding: 20px;
 }
 
-/* Estilos para las imágenes en las galerías */
-.images-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+.galleries-container h2 {
+  margin-bottom: 1rem;
 }
 
 .column {
-  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .column img {
   width: 100%;
-  max-width: 100%;
+  max-width: 400px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
 }
 
-/* Estilos adicionales para pantallas medianas */
-@media (min-width: 768px) and (max-width: 991px) {
-  .welcome-container h1 {
-    font-size: 36px;
+@media (min-width: 768px) {
+  .welcome-container {
+    font-size: 2.5rem;
   }
+}
 
-  .eyes-of-life-container,
-  .galleries-container {
-    padding: 15px;
+@media (min-width: 992px) {
+  .column img {
+    width: 48%;
   }
 }

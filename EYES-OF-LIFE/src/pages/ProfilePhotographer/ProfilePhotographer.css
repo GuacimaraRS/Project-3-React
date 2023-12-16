@@ -4,20 +4,33 @@ body {
   background-color: #f2f2f2;
   color: rgb(2, 80, 158);
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+
+  
 }
 
 .profile-container {
-  display: contents;
+  display: flex;
   padding: 20px;
   align-items: center;
   background-color: #f2efce;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-bottom: 100px;
+  width : 50%;
+  
+  
 }
 
 .additional-info {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 50px;
+  margin-top: 20px; 
 }
 
 .profile-image {
