@@ -14,16 +14,16 @@ const AppBar = () => {
         <img src={logoImage} alt="Logo de Eyes of Life" className="app-logo" />
         <div className="button-container">
           <Link to="/register">
-            <button className="app-button">Sign Up</button>
+            <button className="app-button">Registrate</button>
           </Link>
           <Link to="/sign-in">
-            <button className="app-button">Sign In</button>
+            <button className="app-button">Iniciar Sesión</button>
           </Link>
           <Link to="/about-us">
-            <button className="app-button">About Us</button>
+            <button className="app-button">Sobre Nosotros</button>
           </Link>
           <Link to="/">
-            <button className="app-button">Home</button>
+            <button className="app-button">Inicio</button>
           </Link>
         </div>
       </div>

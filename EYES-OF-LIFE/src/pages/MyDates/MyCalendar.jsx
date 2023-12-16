@@ -1,6 +1,5 @@
-import React from 'react';
-import './MyDates.css';
-
+import React from 'react';import './MyDates.css';
+ 
 const Calendar = ({ appointments, hours }) => {
   return (
     <div className="calendar">
