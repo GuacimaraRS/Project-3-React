@@ -1,7 +1,10 @@
+/* Header.css */
+
+
 .app-bar-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Centra verticalmente los elementos */
   padding: 10px;
   background: linear-gradient(180deg, #FAFFC5 0%, #FAFFC5 57%, #EDF7AC 30%, #F6FE9C 35%, #b6bec7 100%);
   border-radius: 10px;
@@ -9,9 +12,9 @@
 }
 
 .app-logo {
-  max-width: 100px; 
+  max-width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
   height: auto;
-  margin-right: 800px; 
+  margin-right: 800px; /* Añade un margen derecho para separar el logo de los demás elementos */
 }
 
 .button-container {
@@ -24,7 +27,7 @@
   font-size: 14px;
 }
 
-
+/* Media Queries para pantallas más pequeñas (ajusta según tus necesidades) */
 @media (max-width: 768px) {
   .app-bar-container {
     flex-direction: column;

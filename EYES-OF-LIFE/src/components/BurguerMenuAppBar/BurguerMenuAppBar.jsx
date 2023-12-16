@@ -11,6 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import { useNavigate } from 'react-router-dom'
 
 export default function BurgerMenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -21,6 +22,13 @@ export default function BurgerMenuAppBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
+  const navigate = useNavigate()
+  function onLogout() {
+    localStorage.removeItem('token')
+    navigate('/')
+
+  }
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -85,15 +93,15 @@ export default function BurgerMenuAppBar() {
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
-          Add another account
+          Eliminar Cuenta
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
-          Settings
+          Ajustes
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => onLogout()}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

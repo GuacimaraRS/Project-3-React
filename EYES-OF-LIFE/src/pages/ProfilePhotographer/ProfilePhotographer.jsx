@@ -1,4 +1,3 @@
-import React from "react";
 import "./ProfilePhotographer.css";
 import logoImage from "../../assets/images/dani.png";
 

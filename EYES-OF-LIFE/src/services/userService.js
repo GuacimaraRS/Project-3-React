@@ -14,6 +14,16 @@ const getProfile = async () => {
   }
 } 
 
+const getOneUser = async (id) => {
+  try {
+    const { data } = await app.get(`/user/${id}`)
+    return data
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export {
-  getProfile
+  getProfile,
+  getOneUser
 }
