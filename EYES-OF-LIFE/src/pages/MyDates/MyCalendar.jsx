@@ -1,5 +1,5 @@
 import React from 'react';import './MyDates.css';
- 
+ import './MyCalendar.css';
 const Calendar = ({ appointments, hours }) => {
   return (
     <div className="calendar">

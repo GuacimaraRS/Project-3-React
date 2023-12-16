@@ -1,0 +1,52 @@
+/* ProfileUser.css */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .ProfileUser {
+    width: 100%;
+    max-width: 600px; /* Puedes ajustar este valor según tus necesidades */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ProfileUser-header {
+    text-align: center;
+  }
+  
+  .ProfileUser-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto; /* Centra la imagen */
+  }
+  
+  .ProfileUser-info {
+    margin-top: 20px;
+    text-align: center; /* Centra el texto en la información del perfil */
+  }
+  
+  @media (min-width: 768px) {
+    .ProfileUser {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+    }
+  
+    .ProfileUser-avatar {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  

@@ -14,21 +14,17 @@ const AppBarUser = () => {
         </Link>
         <img src={logoImage} alt="Logo" className="app-logo" />
         <div className="button-container">
-          <Link to="/profile-photographer">
+          <Link to="/photographers">
             <button className="app-button">Fotografos</button>
           </Link>
-          <Link to="/my-messages">
-            <button className="app-button">Mis Mensajes</button>
+          <Link to="/my-dates-user">
+            <button className="app-button">Mis Reservas</button>
           </Link>
-          <Link to="/my-dates">
-            <button className="app-button">Mis Citas</button>
+          <Link to="/profile-user">
+            <button className="app-button">Mi Perfil</button>
           </Link>
-          <Link to="/my-galery">
-            <button className="app-button">Mi Galeria</button>
-          </Link>
-          <Link to="/my-events">
-            <button className="app-button">Mis Eventos</button>
-          </Link>
+         
+         
           <BurguerMenuAppBar />
         </div>
       </div>
