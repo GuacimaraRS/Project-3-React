@@ -1,18 +1,18 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import AppBarLayoutPhotographer from "../../components/AppBarLayoutPhotographer/AppBarLayoutPhotographer";
+import AppBarLayoutUser from "../../components/AppBarLayoutUser/AppBarLayoutUser";
 
 
 
 
-const LayoutPerfil = () => {
+const LayoutProfileUser = () => {
 
 
     return (
       <> 
 
-        <AppBarLayoutPhotographer/>
+        <AppBarLayoutUser/>
 
         <Outlet />
       
@@ -23,5 +23,5 @@ const LayoutPerfil = () => {
     );
   };
   
-  export default  LayoutPerfil     ;
+  export default  LayoutProfileUser;     
   
