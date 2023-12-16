@@ -1,5 +1,5 @@
 // AppBar.js
-import React from "react";
+
 import "./AppBarLayoutPhotographer.css";
 import logoImage from "../../assets/images/eyes_of_life.png";
 import { Link } from "react-router-dom";

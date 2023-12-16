@@ -58,7 +58,7 @@ function LoginCard() {
       }
       const result = await login(payload)
       if (result === 200) {
-        if(localStorage.role === "photographer"){
+        if(localStorage.role !== "client"){
            navigate('/profile-photographer')
         }else 
           return navigate('/')
