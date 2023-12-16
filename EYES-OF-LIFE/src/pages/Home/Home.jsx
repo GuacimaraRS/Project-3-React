@@ -1,11 +1,11 @@
-import React from "react";
+
 import logoImage from "../../assets/images/eyes_of_life.png";
 import Elvis4 from "../../assets/images/Elvis4.jpg";
 import Elvis3 from "../../assets/images/Elvis3.jpg";
 import Elvis2 from "../../assets/images/Elvis2.jpg";
 import Elvis1 from "../../assets/images/Elvis1.jpg";
 import "./Home.css";
-import { Outlet } from "react-router-dom";
+
 
 export const Home = () => {
   return (

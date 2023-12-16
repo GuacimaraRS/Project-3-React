@@ -13,7 +13,7 @@ export default function PhotosGaleryPhotographer( { galeryPhotos } ) {
     <Card sx={{ maxWidth: 345,  }} className="card-container">
     <CardMedia
       sx={{ height: 140 }}
-      image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+      image= {galeryPhotos.url}
       title="green iguana"
     />
     <CardContent>

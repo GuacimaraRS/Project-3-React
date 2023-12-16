@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,17 +7,24 @@ import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import { CardContent } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import { login } from '../../services/authService'
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
+
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        EYES OF LIFE
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -26,19 +32,24 @@ function Copyright(props) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
 
-export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+function LoginCard() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("")
+
+  const navigate = useNavigate()
+
+  const handleClick = async () => {
+    try {
+      const response = await login({email, password})
+      localStorage.setItem('token', response.data.token)
+			localStorage.setItem('role', response.data.role)
+      navigate('/profile-photographer')
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -56,57 +67,58 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Login
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <CardContent>
             <TextField
+             onChange={(e) => setEmail(e.target.value)}
               margin="normal"
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Email"
               name="email"
               autoComplete="email"
               autoFocus
             />
             <TextField
+              onChange={(e) => setPassword(e.target.value)}
               margin="normal"
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Contraseña"
               type="password"
               id="password"
               autoComplete="current-password"
             />
+            </CardContent>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label="Recordar Contraseña"
             />
             <Button
+              onClick={ handleClick }
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Entrar
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link to="/register" >
+                  ¿Olvidaste la Contraseña?
                 </Link>
               </Grid>
             </Grid>
           </Box>
-        </Box>
+       
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
 }
+
+export default LoginCard
