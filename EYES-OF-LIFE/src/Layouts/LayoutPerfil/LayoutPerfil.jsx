@@ -7,15 +7,17 @@ import AppBarLayoutPhotographer from "../../components/AppBarLayoutPhotographer/
 
 
 const LayoutPerfil = () => {
+
+
     return (
-      <>
-        
+      <> 
+
         <AppBarLayoutPhotographer/>
-      
+
         <Outlet />
       
         <Footer />
-
+     
         
       </>
     );

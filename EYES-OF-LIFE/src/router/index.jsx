@@ -2,10 +2,15 @@ import { createBrowserRouter, redirect } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Root from "../Layouts/LayoutHome/Layouts";
 import AboutUs from "../pages/AboutUs/AboutUs";
+
 import SignIn from "../pages/SingIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 
+import ShowPhotographers from "../pages/ProfileUser/ShowPhotographers/ShowPhotographers"
+import MyDatesUser from "../pages/ProfileUser/MyDatesUser/MyDatesUser"
+import ProfileUser from "../pages/ProfileUser/ProfileUser";
 import LayoutPerfil from "../Layouts/LayoutPerfil/LayoutPerfil";
+import LayoutProfileUser from "../Layouts/LayoutProfileUser/LayoutProfileUser"
 import MyMessages from "../pages/MyMessages/MyMessages";
 import ProfilePhotographer from "../pages/ProfilePhotographer/ProfilePhotographer";
 import MyDates from "../pages/MyDates/MyDates";
@@ -43,6 +48,7 @@ const router = createBrowserRouter([
         path: "/sign-in",
         element: <SignIn />,
       },
+    
     ],
   },
 
@@ -90,11 +96,28 @@ const router = createBrowserRouter([
         element: <MyEvents />,
       },
     ], 
-    
-    
-
-    
   },
+  {
+    path: "/",
+    element: <LayoutProfileUser />,
+    children: [
+      {
+        path: "/profile-user",
+        element: <ProfileUser />,
+      },
+      {
+        path: "/my-dates-user",
+        element: <MyDatesUser />,
+      },
+      {
+        path: "/photographers",
+        element: <ShowPhotographers />,
+      }
+     
+    ]
+
+  
+},
 ]);
 
 export default router;

@@ -5,6 +5,9 @@ import "./Header.css";
 import logoImage from "../../assets/images/eyes_of_life.png";
 
 const AppBar = () => {
+
+ 
+
   return (
     <header className="app-bar">
       <div className="app-bar-container">

@@ -1,6 +1,7 @@
-import React from 'react';import './MyDates.css';
- import './MyCalendar.css';
-const Calendar = ({ appointments, hours }) => {
+import React from 'react';
+import './MyCalendarUser.css';
+
+const MyCalendarUser = ({ appointments, hours }) => {
   return (
     <div className="calendar">
       <h2>Calendario</h2>
@@ -8,7 +9,7 @@ const Calendar = ({ appointments, hours }) => {
         <thead>
           <tr>
             <th>Hora</th>
-            {['Lunes', 'Martes','Miércoles', 'Jueves', 'Viernes'].map((day) => (
+            {['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'].map((day) => (
               <th key={day}>{day}</th>
             ))}
           </tr>
@@ -17,7 +18,7 @@ const Calendar = ({ appointments, hours }) => {
           {hours.map((hour) => (
             <tr key={hour}>
               <td>{hour}</td>
-              {['Lunes', 'Martes','Miércoles', 'Jueves', 'Viernes'].map((day) => {
+              {['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'].map((day) => {
                 const key = `${day}-${hour}`;
                 const isBooked = appointments[key];
 
@@ -35,4 +36,4 @@ const Calendar = ({ appointments, hours }) => {
   );
 };
 
-export default Calendar;
+export default MyCalendarUser;
