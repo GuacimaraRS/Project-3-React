@@ -4,7 +4,7 @@ import Root from "../Layouts/LayoutHome/Layouts";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import SignIn from "../pages/SingIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
-
+import ProfileUser from "../pages/ProfileUser/ProfileUser";
 import LayoutPerfil from "../Layouts/LayoutPerfil/LayoutPerfil";
 import MyMessages from "../pages/MyMessages/MyMessages";
 import ProfilePhotographer from "../pages/ProfilePhotographer/ProfilePhotographer";
@@ -13,6 +13,8 @@ import MyGalery from "../pages/MyGalery/MyGalery";
 import MyEvents from "../pages/MyEvents/MyEvents";
 import EventsImages from "../pages/EventsImages/EventsImages";
 import PhotosGaleryPhotographer from "../pages/MyGalery/PhotosGalery/PhotosGaleryPhotographer";
+import LayoutProfileUser from "../Layouts/LayoutProfileUser/LayoutProfileUser";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +38,7 @@ const router = createBrowserRouter([
         path: "/sign-in",
         element: <SignIn />,
       },
+    
     ],
   },
 
@@ -93,8 +96,16 @@ const router = createBrowserRouter([
         element: <EventsImages tipo="Bebes" />,
       },
     ],
-    
-    
+  },
+    {
+      path: "/",
+      element: <LayoutProfileUser />,
+      children: [
+        {
+          path: "/profile-user",
+          element: <ProfileUser />,
+        },
+      ]
 
     
   },
