@@ -1,80 +1,72 @@
-@media (min-width: 961px) {
+/* Home.css */
+
+/* Estilos generales */
 .home-container {
-    position: relative;
-    text-align: center;
-  }
-  
-  .welcome-container {
-    color: navy;
-    font-size: 65px;
-    position: absolute;
-    top: 70%; 
-    left: 32%;
-    text-align: center;
-  }
-
-  .line-under {
-    border-bottom: 3px solid navy;
-    margin-bottom: -2px;
-    
-    
-  }
-  
-  .eyes-of-life-container {
-    position: absolute;
-    font-size: 30px;
-    top: 510px;
-    left: 250px;
-    width: 25%;
-    padding: 20px;
-    background-color: #f9f0d3;
-    color: blue;
-    border-radius:15px;
-    max-width: 500px;
-  }
-
-  .galleries-container {
-    position: absolute;
-    font-size: 30px;
-    top: 790px; 
-    right: 250px; 
-    transform: translate(0, -50%);
-    padding: 20px;
-    background-color: #f9f0d3e5;
-    color: blue;
-    width: 200%;
-    max-width: 500px;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 2fr;
-    grid-gap: 15px;
-  }
-
-  .galleries-container .column {
-    display: flex;
-    flex-direction: row;
-    align-items: center;  
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-  
-  .galleries-container .column img {
-    width: 48%;
-    margin-bottom: 17px; 
-  }
-  
-  @media (min-width: 768px) and (max-width: 991px) {
-  .welcome-container {
-    font-size: 45px;
-    top: 50%;
-    left: 40%;
-  }
-
-  .galleries-container {
-    width: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
-  }
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
 }
+
+
+
+
+
+.eyes-of-life-logo {
+  width: 100px;
+  height: 100px;
+ 
+}
+
+/* Estilos para el contenedor "eyes-of-life" */
+.eyes-of-life-container {
+ 
+  margin: 0 auto;
+ 
+  background-color: #f9f0d3;
+  color: blue;
+  border-radius: 15px;
+ 
+}
+
+/* Estilos para el contenedor de galerías */
+.galleries-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f0d3e5;
+  color: blue;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+/* Estilos para las imágenes en las galerías */
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.column {
+  flex: 1;
+}
+
+.column img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+/* Estilos adicionales para pantallas medianas */
+@media (min-width: 768px) and (max-width: 991px) {
+  .welcome-container h1 {
+    font-size: 36px;
+  }
+
+  .eyes-of-life-container,
+  .galleries-container {
+    padding: 15px;
+  }
 }

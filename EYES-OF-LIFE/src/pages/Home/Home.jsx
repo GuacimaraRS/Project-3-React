@@ -5,7 +5,7 @@ import Elvis3 from "../../assets/images/Elvis3.jpg";
 import Elvis2 from "../../assets/images/Elvis2.jpg";
 import Elvis1 from "../../assets/images/Elvis1.jpg";
 import "./Home.css";
-import { Outlet } from "react-router-dom";
+
 
 export const Home = () => {
   return (
