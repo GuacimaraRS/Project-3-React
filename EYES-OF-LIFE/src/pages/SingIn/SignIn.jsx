@@ -14,9 +14,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { login } from '../../services/authService'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-
+import { getProfile } from '../../services/userService';
 
 
 function Copyright(props) {
@@ -37,15 +37,32 @@ const defaultTheme = createTheme();
 function LoginCard() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
+  const [user, setUser] = useState({})
+  
+  useEffect(() =>{
+      const getData = async() =>{
+        const result = await getProfile()
+        setUser(result)
+      }
+      getData()
+  },[])
 
   const navigate = useNavigate()
 
+ 
   const handleClick = async () => {
     try {
-      const response = await login({email, password})
-      localStorage.setItem('token', response.data.token)
-			localStorage.setItem('role', response.data.role)
-      navigate('/profile-photographer')
+      const payload = {
+        email,
+        password
+      }
+      const result = await login(payload)
+      if (result === 200) {
+        if(localStorage.role === "photographer"){
+           navigate('/profile-photographer')
+        }else 
+          return navigate('/')
+      }
     } catch (error) {
       console.log(error)
     }
@@ -62,7 +79,8 @@ function LoginCard() {
             flexDirection: 'column',
             alignItems: 'center',
           }}
-        >
+        > 
+       
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>

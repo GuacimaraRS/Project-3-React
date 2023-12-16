@@ -78,7 +78,7 @@ export default function BurgerMenuAppBar() {
           <Avatar /> PhotoGua5ive.com
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Avatar /> My account
+          <Avatar /> Mi Perfil
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleClose}>

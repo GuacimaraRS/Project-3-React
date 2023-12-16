@@ -49,6 +49,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <LayoutPerfil />,
+    loader: () => {
+      if (!localStorage.getItem("token")) {
+        return redirect("/"); 
+      } else {
+        return null;
+      }
+    },
     children: [
       {
         path: "/profile-photographer",

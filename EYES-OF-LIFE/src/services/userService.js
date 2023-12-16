@@ -6,8 +6,8 @@ const getProfile = async () => {
       headers: {
         authorization: localStorage.token
       }
+      
     })
-    localStorage.setItem('role', data.role)
     return data
   } catch (error) {
     console.log(error)
