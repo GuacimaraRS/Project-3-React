@@ -14,15 +14,29 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  max-width: 1000px;
+  max-width: 1000px; 
   width: 100%;
-  padding: 85px;
+  padding: 50px; 
 }
 
 .appointment-form {
-  max-width: 400px;
+  max-width: 1000px; 
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 50px; 
+}
+ 
+.appointment-form input,
+.appointment-form select {
+  margin-bottom: 25px; 
+  padding: 15px;
+  border: 3px solid #ccc;
+  border-radius: 15px;
+  font-size: 22px;
+}
+
+.appointment-form label {
+  margin-bottom: 15px;
+  font-size: 25px; 
 }
 
 form {
@@ -30,13 +44,12 @@ form {
   flex-direction: column;
 }
 
-
 input,
 select,
 button {
-  padding: 10px;
+  padding: 20px; 
   border: 1px solid #ccc;
-  border-radius: 15px;
+  border-radius: 25px; 
 }
 
 button {
@@ -44,7 +57,7 @@ button {
   color: #0E3863;
   border: none;
   cursor: pointer;
-  font-size: 23px;
+  font-size: 30px; 
   transition: background-color 0.3s ease;
 }
 
@@ -53,14 +66,48 @@ button:hover {
 }
 
 .calendar {
-  max-width: 800px;
+  max-width: 100%; 
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 50px; 
 }
 
+
 .citas-reservadas {
-  align-items: center;
-  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
   width: 100%;
-  margin-left: 65%;
+  margin: 0 auto; 
 }
+
+.citas-reservadas h2 {
+  width: 100%; 
+  text-align: center;
+  font-size: 50px; 
+  margin-bottom: 20px; 
+}
+
+.appointment {
+  width: calc(33.33% - 20px);
+  margin: 50px 10px 100px; 
+  text-align: center;
+}
+
+.cita-reservada h3 {
+  margin: 0;
+  font-size: 25px; 
+}
+
+.cita-reservada p {
+  font-size: 20px; 
+}
+
+.appointment strong {
+  font-size: 25px; 
+}
+
+.appointment div {
+  font-size: 23px; /* Ajusta el tamaño del texto dentro de div */
+}
+

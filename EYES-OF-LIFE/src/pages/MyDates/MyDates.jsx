@@ -115,32 +115,32 @@ const MyDates = () => {
       <div className="divider" />
 
       <div className="citas-reservadas">
-        <h2>Citas Reservadas</h2>
-        {appointments.map((appointment, index) => (
-          <div key={index} className="appointment">
-            <div>
-              <strong>Nombre:</strong> {appointment.name}
-            </div>
-            <div>
-              <strong>Fecha:</strong> {new Date(appointment.date).toLocaleDateString()}
-            </div>
-            <div>
-              <strong>Hora:</strong> {appointment.time}
-            </div>
-            <div>
-              <strong>Evento:</strong> {appointment.event}
-            </div>
-            <div>
-              <strong>Pack:</strong> {appointment.pack}
-            </div>
-            <div>
-              <button type="button" onClick={() => handleDelete(index)}>
-                Eliminar Reserva
-              </button>
-            </div>
-          </div>
-        ))}
+  <h2>Citas Reservadas</h2>
+  {appointments.map((appointment, index) => (
+    <div key={index} className="appointment">
+      <div>
+        <strong>Nombre:</strong> {appointment.name}
       </div>
+      <div>
+        <strong>Fecha:</strong> {new Date(appointment.date).toLocaleDateString()}
+      </div>
+      <div>
+        <strong>Hora:</strong> {appointment.time}
+      </div>
+      <div>
+        <strong>Evento:</strong> {appointment.event}
+      </div>
+      <div>
+        <strong>Pack:</strong> {appointment.pack}
+      </div>
+      <div>
+        <button type="button" onClick={() => handleDelete(index)}>
+          Eliminar Reserva
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
     </div>
   );
 };
