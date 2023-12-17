@@ -14,9 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { login } from '../../services/authService'
-import { useState, useEffect } from "react"
+import { useState} from "react"
 import { useNavigate } from "react-router-dom"
-import { getProfile } from '../../services/userService';
 
 
 function Copyright(props) {
@@ -37,19 +36,10 @@ const defaultTheme = createTheme();
 function LoginCard() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
-  const [user, setUser] = useState({})
   
-  useEffect(() =>{
-      const getData = async() =>{
-        const result = await getProfile()
-        setUser(result)
-      }
-      getData()
-  },[])
-
   const navigate = useNavigate()
 
- 
+
   const handleClick = async () => {
     try {
       const payload = {
@@ -60,6 +50,8 @@ function LoginCard() {
       if (result === 200) {
         if(localStorage.role !== "client"){
            navigate('/profile-photographer')
+        }else if(localStorage.role === "client"){
+          navigate('/profile-user')
         }else 
           return navigate('/')
       }

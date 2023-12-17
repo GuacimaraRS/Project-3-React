@@ -1,12 +1,11 @@
-import app from "./config";
+import api from "./config";
 
 const getProfile = async () => {
   try {
-    const { data } = await app.get('/user/profile', {
+    const { data } = await api.get('/user/profile', {
       headers: {
         authorization: localStorage.token
       }
-      
     })
     return data
   } catch (error) {
@@ -16,7 +15,7 @@ const getProfile = async () => {
 
 const getOneUser = async (id) => {
   try {
-    const { data } = await app.get(`/user/${id}`)
+    const { data } = await api.get(`/user/${id}`)
     return data
   } catch (error) {
     console.error(error);

@@ -1,39 +1,52 @@
+
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+
+
 import { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom"
+
 import { getProfile } from '../../services/userService'
 
 
 const ProfileUser = () => {
-  const { id } = useParams()
   const [user, setUser] = useState({})
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getProfile(id)
+      const result = await getProfile()
       setUser(result)
     }
     fetchData()
+    console.log(user)
   }, [])
-
   return (
-    <div>
-        { Object.keys(user).length !==0 ?
-        <>
+    <Card sx={{ maxWidth: 345 }}>
+
+
+      {Object.keys(user).length !== 0 ?
+        <CardContent>
+          <CardMedia
+            component="img"
+            height="140"
+            image={user.user.imagen}
+            alt=""
+          /> 
           <h3>
-          <strong>Name:</strong> {user.name_user}
-        </h3>
-        <p>
-          <strong>Email:</strong> {user.email}
-        </p>
-        <p>
-          <strong>Phone:</strong> {user.phone}
-        </p>
-        </> :
+            <strong>Name:</strong> {user.user.name_user}
+          </h3>
+          <h3>
+            <strong>Email:</strong> {user.user.email}
+          </h3>
+          <p>
+            <strong>Phone:</strong> {user.user.phone}
+          </p>
+        </CardContent> :
         <h1>
           Loading
         </h1>
       }
-    </div>
+    </Card>
   );
 }
 

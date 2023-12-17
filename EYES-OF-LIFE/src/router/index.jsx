@@ -1,34 +1,26 @@
-import { createBrowserRouter, redirect } from "react-router-dom";
+import { createBrowserRouter} from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Root from "../Layouts/LayoutHome/Layouts";
 import AboutUs from "../pages/AboutUs/AboutUs";
-
 import SignIn from "../pages/SingIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
-
-import ShowPhotographers from "../pages/ProfileUser/ShowPhotographers/ShowPhotographers"
-import MyDatesUser from "../pages/ProfileUser/MyDatesUser/MyDatesUser"
 import ProfileUser from "../pages/ProfileUser/ProfileUser";
 import LayoutPerfil from "../Layouts/LayoutPerfil/LayoutPerfil";
-import LayoutProfileUser from "../Layouts/LayoutProfileUser/LayoutProfileUser"
 import MyMessages from "../pages/MyMessages/MyMessages";
 import ProfilePhotographer from "../pages/ProfilePhotographer/ProfilePhotographer";
 import MyDates from "../pages/MyDates/MyDates";
 import MyGalery from "../pages/MyGalery/MyGalery";
 import MyEvents from "../pages/MyEvents/MyEvents";
-import PhotosGaleryPhotographer from "../pages/MyGalery/PhotosGalery/PhotosGaleryPhotographer"
+import EventsImages from "../pages/EventsImages/EventsImages";
+import PhotosGaleryPhotographer from "../pages/MyGalery/PhotosGalery/PhotosGaleryPhotographer";
+import LayoutProfileUser from "../Layouts/LayoutProfileUser/LayoutProfileUser";
+import MyDatesUser from "../pages/ProfileUser/MyDatesUser/MyDatesUser";
+import ShowPhotographers from "../pages/ProfileUser/ShowPhotographers/ShowPhotographers";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    loader: () => {
-      if (!localStorage.getItem("token")) {
-        return redirect("/"); 
-      } else {
-        return null;
-      }
-    },
     children: [
       {
         path: "/",
@@ -55,24 +47,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <LayoutPerfil />,
-    loader: () => {
-      if (!localStorage.getItem("token")) {
-        return redirect("/"); 
-      } else {
-        return null;
-      }
-    },
     children: [
       {
         path: "/profile-photographer",
         element: <ProfilePhotographer />,
-        loader: () => {
-          if (localStorage.getItem('role') === 'client') {
-            return redirect('/')
-          } else {
-            return null
-          }
-        }
+        
       },
       {
         path: "/my-messages",
@@ -95,29 +74,54 @@ const router = createBrowserRouter([
         path: "/my-events",
         element: <MyEvents />,
       },
-    ], 
+      {
+        path: '/events-boda',
+        element: <EventsImages tipo="Boda" />, 
+      },
+      {
+        path: '/events-cumpleaños',
+        element: <EventsImages tipo="Cumpleaños" />, 
+      },
+      {
+        path: '/events-bautizo',
+        element: <EventsImages tipo="Bautizo" />,
+      },
+      {
+        path: '/events-comuniones',
+        element: <EventsImages tipo="Comuniones" />,
+      },
+      {
+        path: '/events-empresa',
+        element: <EventsImages tipo="Empresa" />,
+      },
+      {
+        path: '/events-bebes',
+        element: <EventsImages tipo="Bebes" />,
+      },
+    ],
   },
-  {
-    path: "/",
-    element: <LayoutProfileUser />,
-    children: [
-      {
-        path: "/profile-user",
-        element: <ProfileUser />,
-      },
-      {
-        path: "/my-dates-user",
-        element: <MyDatesUser />,
-      },
-      {
-        path: "/photographers",
-        element: <ShowPhotographers />,
-      }
-     
-    ]
+    {
+      path: "/",
+      element: <LayoutProfileUser />,
+      children: [
+        {
+          path: "/profile-user",
+          element: <ProfileUser />,
+        },
+        {
+          path: "/my-dates-user",
+          element: <MyDatesUser />,
+        },
+        {
+          path: "/photographers",
+          element: <ShowPhotographers />,
+          
+        }
+       
+      ]
 
-  
-},
+    
+  },
 ]);
 
 export default router;
