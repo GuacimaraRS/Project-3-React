@@ -1,31 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar } from 'react-calendar';
+import { useParams } from 'react-router-dom';
 import 'react-calendar/dist/Calendar.css';
+import './MyDatesUser.css';
 
 const MyDatesUser = () => {
-  const [name, setName] = useState('');
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState('');
-  const [selectedEvent, setSelectedEvent] = useState('Boda');
-  const [selectedPack, setSelectedPack] = useState('Boda deluxe');
+  const { photographerId } = useParams();
+  const [selectedPhotographer, setSelectedPhotographer] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const [appointments, setAppointments] = useState({});
-  const [userId, setUserId] = useState(''); // Puedes obtener esto de la autenticación del usuario
+  const [userId, setUserId] = useState(''); // Asegúrate de inicializar userId según tu lógica de autenticación
+  const [formData, setFormData] = useState({
+    name: '',
+    selectedDate: new Date(),
+    selectedTime: '',
+    selectedEvent: 'Boda',
+    selectedPack: 'Boda deluxe',
+  });
 
   useEffect(() => {
-    const userAppointmentsKey = `appointments_${userId}`;
-    const storedAppointments = JSON.parse(localStorage.getItem(userAppointmentsKey)) || {};
-    setAppointments(storedAppointments);
-  }, [userId]);
+    // Lógica para obtener y establecer la información del fotógrafo seleccionado
+    // Puedes utilizar la información de la URL (params) o realizar una llamada a la API
+    // para obtener los detalles del fotógrafo según el photographerId.
+    // setSelectedPhotographer(...);
+  }, [photographerId]);
 
-  const handleSubmit = () => {
+  const fetchPhotographerDetails = () => {
+    // Lógica para obtener detalles del fotógrafo (puedes usar fetch o axios)
+    // y actualizar setSelectedPhotographer con la información.
+    // Ejemplo ficticio:
+    // fetch(`/api/photographers/${photographerId}`)
+    //   .then(response => response.json())
+    //   .then(data => setSelectedPhotographer(data));
+  };
+
+  useEffect(() => {
+    fetchPhotographerDetails();
+  }, [photographerId]);
+
+  const handleSearch = () => {
+    // Lógica de búsqueda, puedes realizar una llamada a la API aquí
+    // con la consulta de búsqueda (searchQuery) y actualizar setSearchResults
+    // Ejemplo: setSearchResults([...]); // Actualiza con los resultados de búsqueda
+  };
+
+  const handleAppointmentSubmission = () => {
     const userAppointmentsKey = `appointments_${userId}`;
-    const newAppointmentKey = `${selectedDate.toISOString()}-${selectedTime}`;
+    const newAppointmentKey = `${formData.selectedDate.toISOString()}-${formData.selectedTime}`;
     const newAppointment = {
-      name,
-      date: selectedDate,
-      time: selectedTime,
-      event: selectedEvent,
-      pack: selectedPack,
+      name: formData.name,
+      date: formData.selectedDate,
+      time: formData.selectedTime,
+      event: formData.selectedEvent,
+      pack: formData.selectedPack,
     };
 
     setAppointments((prevAppointments) => ({
@@ -33,18 +61,18 @@ const MyDatesUser = () => {
       [newAppointmentKey]: newAppointment,
     }));
 
-    updateLocalCalendar(
-      { ...appointments, [newAppointmentKey]: newAppointment },
-      userAppointmentsKey
-    );
+    updateLocalCalendar({ ...appointments, [newAppointmentKey]: newAppointment }, userAppointmentsKey);
 
-    setName('');
-    setSelectedTime('');
-    setSelectedEvent('Boda');
-    setSelectedPack('Boda deluxe');
+    setFormData({
+      name: '',
+      selectedDate: new Date(),
+      selectedTime: '',
+      selectedEvent: 'Boda',
+      selectedPack: 'Boda deluxe',
+    });
   };
 
-  const handleDelete = (key) => {
+  const handleDeleteAppointment = (key) => {
     const updatedAppointments = { ...appointments };
     delete updatedAppointments[key];
     setAppointments(updatedAppointments);
@@ -57,15 +85,25 @@ const MyDatesUser = () => {
 
   return (
     <div className="my-dates-container">
-      <div className="appointment-form">
-        <h2>Reservar Cita</h2>
-        <div className="form-group">
-          {/* Resto del formulario */}
-        </div>
-        <button type="button" onClick={handleSubmit}>
-          Reservar Cita
+      <h2>Reservar Cita con {selectedPhotographer && selectedPhotographer.name}</h2>
+
+      <div className="form-group">
+        <label htmlFor="searchQuery">Buscar Fotógrafo por Nombre:</label>
+        <input
+          type="text"
+          id="searchQuery"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button type="button" onClick={handleSearch}>
+          Buscar
         </button>
       </div>
+
+      {/* Resto del formulario */}
+      <button type="button" onClick={handleAppointmentSubmission}>
+        Reservar Cita
+      </button>
 
       <div className="divider" />
 
@@ -74,7 +112,7 @@ const MyDatesUser = () => {
         {Object.entries(appointments).map(([key, appointment]) => (
           <div key={key} className="appointment">
             {/* Mostrar detalles de la cita */}
-            <button type="button" onClick={() => handleDelete(key)}>
+            <button type="button" onClick={() => handleDeleteAppointment(key)}>
               Eliminar Reserva
             </button>
           </div>
