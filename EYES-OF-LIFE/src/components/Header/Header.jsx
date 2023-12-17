@@ -11,7 +11,7 @@ const AppBar = () => {
   return (
     <header className="app-bar">
       <div className="app-bar-container">
-        <Link to="/">
+        <Link to="/home">
           <h1>EYES OF LIFE</h1>
         </Link>
         <img src={logoImage} alt="Logo de Eyes of Life" className="app-logo" />
@@ -25,7 +25,7 @@ const AppBar = () => {
           <Link to="/about-us">
             <button className="app-button">Sobre Nosotros</button>
           </Link>
-          <Link to="/">
+          <Link to="/home">
             <button className="app-button">Inicio</button>
           </Link>
         </div>
