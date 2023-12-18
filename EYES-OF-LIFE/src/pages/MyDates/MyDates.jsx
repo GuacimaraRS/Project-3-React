@@ -6,8 +6,8 @@ const MyDates = () => {
   const [name, setName] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
-  const [selectedEvent, setSelectedEvent] = useState('Boda'); // Cambiado a 'Boda' como valor predeterminado
-  const [selectedPack, setSelectedPack] = useState('Boda deluxe'); // Cambiado a 'Boda deluxe' como valor predeterminado
+  const [selectedEvent, setSelectedEvent] = useState('Boda');
+  const [selectedPack, setSelectedPack] = useState('Boda deluxe');
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
@@ -25,10 +25,7 @@ const MyDates = () => {
     };
     setAppointments([...appointments, newAppointment]);
     updateLocalCalendar([...appointments, newAppointment]);
-    setName('');
-    setSelectedTime('');
-    setSelectedEvent('Boda'); // Restaurar el valor predeterminado para el próximo evento
-    setSelectedPack('Boda deluxe'); // Restaurar el valor predeterminado para el próximo pack
+    resetForm();
   };
 
   const handleDelete = (index) => {
@@ -40,6 +37,13 @@ const MyDates = () => {
 
   const updateLocalCalendar = (appointments) => {
     localStorage.setItem('appointments', JSON.stringify(appointments));
+  };
+
+  const resetForm = () => {
+    setName('');
+    setSelectedTime('');
+    setSelectedEvent('Boda');
+    setSelectedPack('Boda deluxe');
   };
 
   return (
@@ -56,7 +60,7 @@ const MyDates = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="form-group-calendar">
           <label htmlFor="date">Fecha:</label>
           <Calendar
             onChange={(date) => setSelectedDate(date)}
@@ -115,32 +119,32 @@ const MyDates = () => {
       <div className="divider" />
 
       <div className="citas-reservadas">
-  <h2>Citas Reservadas</h2>
-  {appointments.map((appointment, index) => (
-    <div key={index} className="appointment">
-      <div>
-        <strong>Nombre:</strong> {appointment.name}
+        <h2 style={{ fontSize: '40px', marginBottom: '10px' }}>Citas Reservadas</h2>
+        {appointments.map((appointment, index) => (
+          <div key={index} className="appointment">
+            <div>
+            <strong>Fecha:</strong> {new Date(appointment.date).toLocaleDateString()}
+            </div>
+            <div>
+              <strong>Nombre:</strong> {appointment.name}
+            </div>
+            <div>
+              <strong>Hora:</strong> {appointment.time}
+            </div>
+            <div>
+              <strong>Evento:</strong> {appointment.event}
+            </div>
+            <div>
+              <strong>Pack:</strong> {appointment.pack}
+            </div>
+            <div>
+              <button type="button" onClick={() => handleDelete(index)}>
+                Eliminar Reserva
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
-      <div>
-        <strong>Fecha:</strong> {new Date(appointment.date).toLocaleDateString()}
-      </div>
-      <div>
-        <strong>Hora:</strong> {appointment.time}
-      </div>
-      <div>
-        <strong>Evento:</strong> {appointment.event}
-      </div>
-      <div>
-        <strong>Pack:</strong> {appointment.pack}
-      </div>
-      <div>
-        <button type="button" onClick={() => handleDelete(index)}>
-          Eliminar Reserva
-        </button>
-      </div>
-    </div>
-  ))}
-</div>
     </div>
   );
 };

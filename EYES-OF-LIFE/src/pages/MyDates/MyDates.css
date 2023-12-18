@@ -1,55 +1,54 @@
 body {
-  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  font-family: Arial, sans-serif;
   background-color: #fffedbc1;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 
 .my-dates-container {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  max-width: 1000px; 
   width: 100%;
-  padding: 50px; 
+  padding: 15px; 
+  margin-top: 15px; 
 }
+
 
 .appointment-form {
-  max-width: 1000px; 
+  display:contents;
   width: 100%;
-  margin-bottom: 50px; 
+  margin-bottom: 10px;
 }
- 
+
 .appointment-form input,
 .appointment-form select {
-  margin-bottom: 25px; 
-  padding: 15px;
+  margin-bottom: 2px;
+  padding: 10px;
   border: 3px solid #ccc;
   border-radius: 15px;
-  font-size: 22px;
+  font-size: 20px;
 }
 
-.appointment-form label {
-  margin-bottom: 15px;
-  font-size: 25px; 
-}
-
-form {
+.form-group-calendar{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  margin-top: -22%;
+  align-items: center;
+  font-size: 35px;
+  width: 100%;
+  
 }
 
 input,
 select,
 button {
-  padding: 20px; 
+  padding: 15px;
   border: 1px solid #ccc;
-  border-radius: 25px; 
+  border-radius: 30px;
 }
 
 button {
@@ -57,7 +56,7 @@ button {
   color: #0E3863;
   border: none;
   cursor: pointer;
-  font-size: 30px; 
+  font-size: 18px;
   transition: background-color 0.3s ease;
 }
 
@@ -65,12 +64,10 @@ button:hover {
   background-color: #fbd081;
 }
 
-.calendar {
-  max-width: 100%; 
+.form-group{
   width: 100%;
-  margin-bottom: 50px; 
+  margin-top:-25px;
 }
-
 
 .citas-reservadas {
   display: flex;
@@ -78,36 +75,35 @@ button:hover {
   justify-content: center;
   max-width: 1200px;
   width: 100%;
-  margin: 0 auto; 
+  
 }
 
 .citas-reservadas h2 {
-  width: 100%; 
+  width: 100%;
   text-align: center;
-  font-size: 50px; 
-  margin-bottom: 20px; 
+  font-size: 60px;
+  margin-bottom: 30px;
 }
 
 .appointment {
-  width: calc(33.33% - 20px);
-  margin: 50px 10px 100px; 
+  width: calc(35.33% - 20px);
+  margin: 50px 10px 100px;
   text-align: center;
 }
 
 .cita-reservada h3 {
   margin: 0;
-  font-size: 25px; 
+  font-size: 25px;
 }
 
 .cita-reservada p {
-  font-size: 20px; 
+  font-size: 20px;
 }
 
 .appointment strong {
-  font-size: 25px; 
+  font-size: 25px;
 }
 
 .appointment div {
-  font-size: 23px; /* Ajusta el tamaño del texto dentro de div */
+  font-size: 23px;
 }
-

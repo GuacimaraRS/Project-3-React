@@ -56,7 +56,6 @@ const ProfilePhotographer = () => {
             Fortalezas en la captura de paisajes naturales y urbanos, con especialización en fotografía documental, fotoperiodismo y eventos.
           </p>
           <div>
-            <Link to="/my-dates-user">Reservar Cita</Link>
         </div>
         </div>
       </div>

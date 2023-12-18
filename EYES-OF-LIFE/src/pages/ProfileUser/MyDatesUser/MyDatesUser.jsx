@@ -101,7 +101,7 @@ const MyDatesUser = () => {
       </div>
 
       {/* Resto del formulario */}
-      <button type="button" onClick={handleAppointmentSubmission}>
+      <button type="button" className="custom-button" onClick={handleAppointmentSubmission}>
         Reservar Cita
       </button>
 
