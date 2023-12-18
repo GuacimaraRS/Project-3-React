@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter} from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Root from "../Layouts/LayoutHome/Layouts";
 import AboutUs from "../pages/AboutUs/AboutUs";
@@ -51,6 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/profile-photographer",
         element: <ProfilePhotographer />,
+        
       },
       {
         path: "/my-messages",
@@ -122,6 +123,7 @@ const router = createBrowserRouter([
         {
           path: "/photographers",
           element: <ShowPhotographers />,
+          
         }
        
       ]

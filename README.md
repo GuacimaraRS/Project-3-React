@@ -1,5 +1,5 @@
 # Project-3-React
-- WEB PHOTOGUA5IVE
+- WEB EYE OF LIFE
 
 ## Summary
 

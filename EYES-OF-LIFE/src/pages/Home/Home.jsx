@@ -1,4 +1,4 @@
-import React from "react";
+
 import logoImage from "../../assets/images/eyes_of_life.png";
 import Elvis4 from "../../assets/images/Elvis4.jpg";
 import Elvis3 from "../../assets/images/Elvis3.jpg";

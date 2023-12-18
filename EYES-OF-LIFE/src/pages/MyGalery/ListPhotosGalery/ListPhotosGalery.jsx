@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./ListPhotosGalery.css";
 import PhotosGaleryPhotographer from "../PhotosGalery/PhotosGaleryPhotographer";
 import { Box } from "@mui/material";
@@ -12,7 +12,7 @@ const ListPhotosGalery = ({ photosGalery }) => {
         flexDirection: "row",
       }}
     >
-      {photosGalery.map((photo) => {
+      {photosGalery && photosGalery.map((photo) => {
         return (
           
             <Link key={photo.id} to={`/my-galery/${photo.id}`}>

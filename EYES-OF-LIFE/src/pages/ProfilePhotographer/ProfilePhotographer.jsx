@@ -1,4 +1,3 @@
-import React from "react";
 import "./ProfilePhotographer.css";
 import A from "../../assets/images/A.png";
 import fue from "../../assets/images/fue.png";
