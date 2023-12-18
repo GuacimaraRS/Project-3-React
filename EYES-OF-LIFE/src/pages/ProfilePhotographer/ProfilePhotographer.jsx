@@ -2,6 +2,7 @@ import "./ProfilePhotographer.css";
 import A from "../../assets/images/A.png";
 import fue from "../../assets/images/fue.png";
 import fuerteventurasol from "../../assets/images/fuerteventurasol.jpg";
+import { Link } from 'react-router-dom';
 
 const ProfilePhotographer = () => {
   return (

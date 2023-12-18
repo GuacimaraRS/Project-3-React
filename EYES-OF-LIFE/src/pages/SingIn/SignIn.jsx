@@ -22,8 +22,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        EYES OF LIFE
+      <Link color="inherit" href="/home">
+        Your Website
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -118,8 +118,13 @@ function LoginCard() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link to="/register" >
-                  ¿Olvidaste la Contraseña?
+                <Link href="" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="/register" variant="body2">
+                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
