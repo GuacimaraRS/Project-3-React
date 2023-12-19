@@ -20,16 +20,16 @@ body, html {
 /* Estilos del contenedor "Eyes of Life" */
 .eyes-of-life-container {
   border-radius: 15px;
-  
+  padding: 20px;
   background-color: #f9f0d3e5;
   color: blue;
-  /* Ajusta el margen superior según sea necesario */
+  margin-top: -150px; /* Ajusta el margen superior según sea necesario */
 }
 
 /* Estilo del logo de Eyes of Life */
 .eyes-of-life-logo {
   max-width: 100%;
-  margin-top: -100px; /* Ajusta el margen superior según sea necesario */
+  margin-top: -120px; /* Ajusta el margen superior según sea necesario */
 }
 
 /* Estilos del contenedor de bienvenida */
@@ -49,7 +49,7 @@ body, html {
   color: blue;
 }
 
-/* Estilos del encabezado de las galerías */
+
 
 
 /* Estilos de las columnas de imágenes */
@@ -75,4 +75,3 @@ body, html {
     font-size: 2.5rem;
   }
 }
-
