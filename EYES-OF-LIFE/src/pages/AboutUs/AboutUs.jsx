@@ -1,13 +1,13 @@
-// AboutUs.jsx
-
 import React from "react";
 import "./AboutUs.css";
 
+
 const AboutUs = () => {
   return (
-    <div className="about-us-container">
-      About Us
-      ¡Bienvenido a [EYES OF LIFE]! En [EYES OF LIFE], estamos
+    <div className="about-container">
+      <div className="about-header">
+        <h1>Nuestra Historia</h1>
+        <p>¡Bienvenido a [EYES OF LIFE]! En [EYES OF LIFE], estamos
       comprometidos en simplificar y enriquecer la conexión entre talentosos
       fotógrafos y clientes apasionados por capturar momentos memorables.
       Nuestra plataforma ha sido diseñada para potenciar la colaboración y
@@ -36,7 +36,42 @@ const AboutUs = () => {
       Estamos aquí para brindarte el mejor servicio posible. Si tienes
       preguntas, sugerencias o simplemente quieres decir hola, no dudes en
       ponerte en contacto con nosotros. ¡Estamos emocionados de ser parte de tu
-      viaje fotográfico!
+      viaje fotográfico!</p>
+      </div>
+      <div className="team-section">
+        <div className="team-member">
+          <img src="/w3images/team1.jpg" alt="Jane" />
+          <div className="member-info">
+            <h2>CARLOS</h2>
+            <p>CEO & Founder</p>
+            <p>¡Hola! Soy CARLOS, progamador y diseñador.</p>
+            <p>carlos@gmail.com</p>
+            <button>Contactar</button>
+          </div>
+        </div>
+
+        <div className="team-member">
+          <img src="/w3images/team2.jpg" alt="Mike" />
+          <div className="member-info">
+            <h2>GUACIMARA</h2>
+            <p>CEO & Founder</p>
+            <p>¡Hola! Soy GUACI, programadora y diseñadora.</p>
+            <p>guacimara@gmail.com</p>
+            <button>Contactar</button>
+          </div>
+        </div>
+
+        <div className="team-member">
+          <img src="src/assets/images/dani.png" alt="John" />
+          <div className="member-info">
+            <h2>J.DANIEL</h2>
+            <p>CEO & Founder</p>
+            <p>¡Hola! Soy J.DANIEL, programador y diseñador.</p>
+            <p>john@example.com</p>
+            <button>Contactar</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
