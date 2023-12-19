@@ -40,7 +40,7 @@ const AboutUs = () => {
       </div>
       <div className="team-section">
         <div className="team-member">
-          <img src="/w3images/team1.jpg" alt="Jane" />
+          <img src="src/assets/images/fotoCarlos.webp" alt="CARLOS" />
           <div className="member-info">
             <h2>CARLOS</h2>
             <p>CEO & Founder</p>
@@ -51,7 +51,7 @@ const AboutUs = () => {
         </div>
 
         <div className="team-member">
-          <img src="/w3images/team2.jpg" alt="Mike" />
+          <img src="src/assets/images/fotoGuaci.webp" alt="GUACIMARA" />
           <div className="member-info">
             <h2>GUACIMARA</h2>
             <p>CEO & Founder</p>
@@ -62,12 +62,12 @@ const AboutUs = () => {
         </div>
 
         <div className="team-member">
-          <img src="src/assets/images/dani.png" alt="John" />
+          <img src="src/assets/images/fotoDani.webp" alt="J.DANIEL" />
           <div className="member-info">
             <h2>J.DANIEL</h2>
             <p>CEO & Founder</p>
             <p>¡Hola! Soy J.DANIEL, programador y diseñador.</p>
-            <p>john@example.com</p>
+            <p>john@gmail.com</p>
             <button>Contactar</button>
           </div>
         </div>
