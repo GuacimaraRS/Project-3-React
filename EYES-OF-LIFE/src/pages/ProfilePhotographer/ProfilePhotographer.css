@@ -6,7 +6,6 @@ body {
   margin-bottom: 100px;
 }
 
-/* Estilos del contenedor principal */
 .container {
   display: flex;
   flex-direction: column;
@@ -14,83 +13,42 @@ body {
   min-height: 100vh;
 }
 
-/* Estilos del perfil */
 .profile-container {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   max-height: calc(100vh - 40px);
+  margin-top: 250px;
 }
 
-.right-section,
-.left-column {
-  margin: 20px;
-}
-
-.right-section {
-  max-width: 200px;
-  min-width: 200px;
-}
-
-/* Estilos para pantallas grandes */
-.right-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-right: 500px;
-  margin-top: 200px;
-  margin-left: 89px;
-  margin-bottom: 70px;
-  width: 100%;
-}
-
-.left-top-section {
-  margin-left: 90px;
-}
-
-/* Actualización para hacer el contenedor más responsivo */
 .right-section {
   max-width: 100%;
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-left: 400px; /* Ajusta este valor según tus preferencias */
 }
 
-/* Actualización para hacer el contenedor de habilidades más responsivo */
 .info-box.skills {
   max-width: 100%;
   margin-top: 20px;
 }
 
-/* Estilos para pantallas medianas y pequeñas */
-@media screen and (max-width: 1200px) {
-  .right-section,
-  .left-column {
-    margin: 10px;
-    max-width: 100%;
-  }
-
+@media screen and (min-width: 769px) and (max-width: 1200px) {
   .right-section {
     min-width: 100%;
     margin-right: 30px;
   }
 }
 
-/* Estilos para pantallas pequeñas */
 @media screen and (max-width: 768px) {
-  .right-section,
-  .left-column {
-    margin: 10px;
-    max-width: 100%;
-  }
-
   .right-section {
     min-width: 100%;
+    margin-left: 10px; /* Ajusta este valor según tus preferencias */
   }
 
-  /* Ajustes específicos para pantallas pequeñas */
-  .info-box.about-me,
-  .info-box.skills {
-    max-width: calc(50% - 20px); /* Cambia este valor para ajustar el ancho de cada caja */
+  .about-me,
+  .skills {
+    max-width: calc(100% - 20px);
     margin-right: 10px;
     margin-left: 10px;
   }
@@ -100,13 +58,13 @@ body {
   }
 }
 
-/* Estilos específicos para "Sobre Mí" y "Habilidades Fotográficas" */
 .about-me,
 .skills {
   display: flex;
-  flex-direction: column; /* Cambiado a columna para apilar elementos verticalmente */
+  flex-direction: column;
   align-items: flex-start;
   margin-bottom: 30px;
+  margin-left: 10px;
 }
 
 .profile-description {
@@ -116,7 +74,7 @@ body {
   border: 1px solid rgb(77, 139, 232);
   border-radius: 20px;
   padding: 20px;
-  max-width: 500px;
+  max-width: 100%; /* Ajusta este valor según tus preferencias */
   text-align: justify;
   word-wrap: break-word;
   word-spacing: 5px;
@@ -125,11 +83,11 @@ body {
 .additional-image {
   width: 100px;
   border-radius: 50%;
-  margin-right: 30px;
+  margin-right: 10px;
   margin-bottom: 20px;
+  margin-left: 10px;
 }
 
-/* Estilos de color para texto */
 .profile-name,
 .profile-description,
 .contact-info,
@@ -139,14 +97,4 @@ body {
 
 .info-box p {
   color: rgb(48, 131, 179);
-}
-
-/* Estilos para el footer */
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  position: relative;
-  bottom: 0;
-  width: 100%;
 }
