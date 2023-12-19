@@ -6,13 +6,18 @@ const MyDates = () => {
   const [name, setName] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
-  const [selectedEvent, setSelectedEvent] = useState('Boda');
-  const [selectedPack, setSelectedPack] = useState('Boda deluxe');
+  const [selectedEvent, setSelectedEvent] = useState('');
+  const [selectedPack, setSelectedPack] = useState('');
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    const storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
-    setAppointments(storedAppointments);
+    try {
+      const storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
+      setAppointments(storedAppointments);
+    } catch (error) {
+      console.error('Error parsing JSON data from localStorage:', error);
+      
+    }
   }, []);
 
   const handleSubmit = () => {
@@ -23,10 +28,10 @@ const MyDates = () => {
       event: selectedEvent,
       pack: selectedPack,
     };
-    setAppointments([...appointments, newAppointment]);
-    updateLocalCalendar([...appointments, newAppointment]);
-    resetForm();
-  };
+    setAppointments((prevAppointments) => [...prevAppointments, newAppointment]);
+  updateLocalCalendar((prevAppointments) => [...prevAppointments, newAppointment]);
+  resetForm();
+};
 
   const handleDelete = (index) => {
     const updatedAppointments = [...appointments];
@@ -42,8 +47,8 @@ const MyDates = () => {
   const resetForm = () => {
     setName('');
     setSelectedTime('');
-    setSelectedEvent('Boda');
-    setSelectedPack('Boda deluxe');
+    setSelectedEvent('');
+    setSelectedPack('');
   };
 
   return (
@@ -106,7 +111,7 @@ const MyDates = () => {
             onChange={(e) => setSelectedPack(e.target.value)}
             required
           >
-            <option value="Boda deluxe">Boda deluxe</option>
+            <option value="Estándar">Estándar</option>
             <option value="Premium">Premium</option>
             <option value="Deluxe">Deluxe</option>
           </select>
