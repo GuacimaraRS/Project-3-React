@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import './MyDates.css';
+import { formatNamedParameters } from 'sequelize/types/utils';
 
 
 const MyDates = () => {
   const location = useLocation();
-  const {name} = location.state || {};
-  console.log(name.split(" ")[1])
+  const {name} = location.state || {name: ""};
+  console.log(name)
  
   const [formName, setFormName] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -15,6 +16,7 @@ const MyDates = () => {
   const [selectedEvent, setSelectedEvent] = useState(name.split(" ")[0]);
   const [selectedPack, setSelectedPack] = useState(name.split(" ")[1])
   const [appointments, setAppointments] = useState([]);
+  
 
  
   const handleSubmit = () => {
@@ -59,8 +61,8 @@ const MyDates = () => {
           <input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={formName}
+            onChange={(e) =>setFormName(e.target.value)}
             required
           />
         </div>

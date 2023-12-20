@@ -5,65 +5,76 @@ import A from '../../assets/images/A.png';
 
 const ProfilePhotographer = () => {
   const [userData, setUserData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const data = await getProfilePhotographer();
-      setUserData(data);
+      try {
+        const data = await getProfilePhotographer();
+        console.log(data)
+        setUserData(data);
+      }  catch (error) {
+        console.error('Error al cargar los datos del perfil del fotógrafo:', error);
+        setError('Error al cargar los datos del perfil del fotógrafo. Consulta la consola para más detalles.');
+      } finally {
+        setLoading(false);
+      }
     };
+
     fetchUserData();
-  },[]);
- console.log(userData)
- return (
-  <>
-    {Object.keys(userData).length !== 0 ? (
-      <div className="profile-container">
-        <div className="left-top-section">
-          <div className="left-column">
-            <img src={A} alt="Mi Perfil" className="profile-image" />
-            <div className="personal-details">
-              <h2 className="profile-name">{userData.user.name_user}</h2>
-              <p className="profile-description">{userData.user.description || 'Descripción no disponible'}</p>
+  }, []);
+
+  return (
+    <>
+      {loading ? (
+        <h1>Cargando...</h1>
+      ) : error ? (
+        <h1>{error}</h1>
+      ) : (
+        <div className="profile-container">
+          <div className="left-top-section">
+            <div className="left-column">
+              <img src={A} alt="Mi Perfil" className="profile-image" />
+              <div className="personal-details">
+                <h2 className="profile-name">{userData.user && userData.user.name_user}</h2>
+                <p className="profile-description">{userData && userData.user.infoPhotoGrapher.description || 'Descripción no disponible'}</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="contact-info">
-          <h2>Contacto</h2>
-          {userData.user.infoPhotoGrapher ? (
-            <>
-              <p>Número de teléfono: {userData.user.infoPhotoGrapher.phone}</p>
-              <p>Edad: {userData.user.infoPhotoGrapher.age} años</p>
-              <p>Estudios: {userData.user.infoPhotoGrapher.studies}</p>
-              <p>Dirección: {userData.user.infoPhotoGrapher.address}</p>
-              <p>Años de experiencia profesional: {userData.user.infoPhotoGrapher.experience}</p>
-            </>
-          ) : (
-            <p>Cargando información...</p>
-          )}
-        </div>
-
-        <div className="right-section">
-          {/* Sobre Mí */}
-          <div className="info-box about-me">
-            <h2>Sobre Mí</h2>
-            {userData.aboutMe?.image && <img src={userData.aboutMe.image} alt="Fotografía Sobre Mí" className="additional-image" />}
-            <p className="profile-description">{userData.aboutMe?.description || 'Sin información disponible'}</p>
+          <div className="contact-info">
+            <h2>Contacto</h2>
+            {userData && userData.user.infoPhotoGrapher ? (
+              <>
+                <p>Número de teléfono: {userData.user.phone}</p>
+                <p>Edad: {userData.user.age} años</p>
+                <p>Estudios: {userData.user.studies}</p>
+                <p>Dirección: {userData.user.address}</p>
+                <p>Años de experiencia profesional: {userData.user.experience}</p>
+              </>
+            ) : (
+              <p>Cargando información...</p>
+            )}
           </div>
 
-          {/* Habilidades Fotográficas */}
-          <div className="info-box skills">
-            <h2>Habilidades Fotográficas</h2>
-            {userData.skills?.image && <img src={userData.skills.image} alt="Habilidades Fotográficas" className="additional-image" />}
-            <p className="profile-description">{userData.skills?.description || 'Sin información disponible'}</p>
+          <div className="right-section">
+            <div className="info-box about-me">
+              <h2>Sobre Mí</h2>
+               {/* < userData && userData.user.infoPhotoGrapher.aboutMe.image && <img src={userData.user.image} alt="Fotografía Sobre Mí" className="additional-image" /> */}
+              <p className="profile-description">{userData && userData.user.infoPhotoGrapher.aboutMe || 'Sin información disponible'}</p> 
+            </div>
+
+             <div className="info-box skills">
+              <h2>Habilidades Fotográficas</h2>
+              {/* {userData && userData.skills?.image && <img src={userData.skills.image} alt="Habilidades Fotográficas" className="additional-image" />} */}
+              <p className="profile-description">{userData && userData.user.infoPhotoGrapher.description || 'Sin información disponible'}</p>
+            </div> 
           </div>
         </div>
-      </div>
-    ) : (
-      <h1>Cargando...</h1>
-    )}
-  </>
-);
-    }
+      )}
+    </>
+  );
+};
 
 export default ProfilePhotographer;
