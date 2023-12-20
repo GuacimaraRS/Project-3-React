@@ -24,6 +24,8 @@ body {
 
 }
 
+
+
 .appointment-form input,
 .appointment-form select {
   margin-bottom: 10px;
@@ -33,7 +35,7 @@ body {
   font-size: 18px;
 }
 
-.form-group-calendar {
+.form-group-calendar .react-calendar {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,6 +43,7 @@ body {
   margin-top: 5%;
   width: 100%;
 }
+
 
 input,
 select,

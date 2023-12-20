@@ -22,21 +22,21 @@ const ProfilePhotographer = () => {
           <div className="left-column">
             <img src={A} alt="Mi Perfil" className="profile-image" />
             <div className="personal-details">
-              <h2 className="profile-name">{userData.name_user}</h2>
-              <p className="profile-description">{userData.description || 'Descripción no disponible'}</p>
+              <h2 className="profile-name">{userData.user.name_user}</h2>
+              <p className="profile-description">{userData.user.description || 'Descripción no disponible'}</p>
             </div>
           </div>
         </div>
 
         <div className="contact-info">
           <h2>Contacto</h2>
-          {userData.contactInfo ? (
+          {userData.user.infoPhotoGrapher ? (
             <>
-              <p>Número de teléfono: {userData.contactInfo.phone}</p>
-              <p>Edad: {userData.contactInfo.age} años</p>
-              <p>Estudios: {userData.contactInfo.studies}</p>
-              <p>Dirección: {userData.contactInfo.address}</p>
-              <p>Años de experiencia profesional: {userData.contactInfo.experience}</p>
+              <p>Número de teléfono: {userData.user.infoPhotoGrapher.phone}</p>
+              <p>Edad: {userData.user.infoPhotoGrapher.age} años</p>
+              <p>Estudios: {userData.user.infoPhotoGrapher.studies}</p>
+              <p>Dirección: {userData.user.infoPhotoGrapher.address}</p>
+              <p>Años de experiencia profesional: {userData.user.infoPhotoGrapher.experience}</p>
             </>
           ) : (
             <p>Cargando información...</p>

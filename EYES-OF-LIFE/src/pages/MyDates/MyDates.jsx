@@ -1,37 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import './MyDates.css';
 
+
 const MyDates = () => {
-  const [name, setName] = useState('');
+  const location = useLocation();
+  const {name} = location.state || {};
+  console.log(name.split(" ")[1])
+ 
+  const [formName, setFormName] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
-  const [selectedEvent, setSelectedEvent] = useState('');
-  const [selectedPack, setSelectedPack] = useState('');
+  const [selectedEvent, setSelectedEvent] = useState(name.split(" ")[0]);
+  const [selectedPack, setSelectedPack] = useState(name.split(" ")[1])
   const [appointments, setAppointments] = useState([]);
 
-  useEffect(() => {
-    try {
-      const storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
-      setAppointments(storedAppointments);
-    } catch (error) {
-      console.error('Error parsing JSON data from localStorage:', error);
-      
-    }
-  }, []);
-
+ 
   const handleSubmit = () => {
     const newAppointment = {
-      name,
+      name: formName,
       date: selectedDate,
       time: selectedTime,
       event: selectedEvent,
       pack: selectedPack,
     };
     setAppointments((prevAppointments) => [...prevAppointments, newAppointment]);
-  updateLocalCalendar((prevAppointments) => [...prevAppointments, newAppointment]);
-  resetForm();
-};
+    updateLocalCalendar([...appointments, newAppointment]);
+  
+  };
 
   const handleDelete = (index) => {
     const updatedAppointments = [...appointments];
@@ -44,12 +41,14 @@ const MyDates = () => {
     localStorage.setItem('appointments', JSON.stringify(appointments));
   };
 
+/*Esta funcion puede crear un boton que resetee todo*/
   const resetForm = () => {
-    setName('');
+    setFormName('');
     setSelectedTime('');
     setSelectedEvent('');
     setSelectedPack('');
   };
+
 
   return (
     <div className="my-dates-container">
@@ -68,6 +67,7 @@ const MyDates = () => {
         <div className="form-group-calendar">
           <label htmlFor="date">Fecha:</label>
           <Calendar
+          
             onChange={(date) => setSelectedDate(date)}
             value={selectedDate}
           />
@@ -153,5 +153,6 @@ const MyDates = () => {
     </div>
   );
 };
+
 
 export default MyDates;

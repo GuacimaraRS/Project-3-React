@@ -33,7 +33,7 @@ const EventsImages = () => {
   return (
     <div className="events-container">
       {eventsData.map((event, index) => (
-        <Link to={`/my-dates?event=${event.name}`} key={index} className="evento">
+        <Link to={`/my-dates?event=${event.name}`} state={event} key={index} className="evento">
           <div className="evento-card">
             <h2>{event.name}</h2>
             <ul>
