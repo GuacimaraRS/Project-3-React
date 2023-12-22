@@ -12,6 +12,21 @@ const addImagenPhotographer = async (body) => {
     }
 }
 
+const getAllPhotographer = async () => {
+    try {
+        const { data } = await api.get('/user/photographers', {
+            headers: {
+              authorization: localStorage.token
+            }})
+        return data
+    } catch (error) {
+        console.error(error)
+        
+    }
+}
+
 export {
-    addImagenPhotographer
+    addImagenPhotographer,
+   
+    getAllPhotographer
 }

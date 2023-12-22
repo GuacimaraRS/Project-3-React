@@ -116,7 +116,12 @@ const router = createBrowserRouter([
           path: "/photographers",
           element: <ShowPhotographers />,
           
-        }
+        },
+        // {
+        //   path: "/photographers/:id",
+        //   element: <ShowOnePhotographers />,
+          
+        // }
        
       ]
 

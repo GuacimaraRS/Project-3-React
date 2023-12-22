@@ -5,33 +5,39 @@ import CardMedia from '@mui/material/CardMedia';
 
 
 import { useState, useEffect } from 'react'
+import './ProfileUser.css'
 
-import { getProfile } from '../../services/userService'
+import { getProfile,} from '../../services/userService'
+
 
 
 const ProfileUser = () => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
+
+
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getProfile()
-      setUser(result)
-    }
-    fetchData()
-    console.log(user)
-  }, [])
+      try {
+        const userData = await getProfile();
+        setUser(userData);
+        setLoading(false);
+      
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
-
-
-      {Object.keys(user).length !== 0 ?
-        <CardContent>
-          <CardMedia
-            component="img"
-            height="140"
-            image={user.user.imagen}
-            alt=""
-          /> 
+    <Card sx={{width:400, margin:2}}>
+      {Object.keys(user).length !== 0 && !loading ? (
+        <CardContent className="cardContainer" >
+          <CardMedia component="img" height="auto" image={user.user.imagen} alt="" />
           <h3>
             <strong>Name:</strong> {user.user.name_user}
           </h3>
@@ -41,13 +47,13 @@ const ProfileUser = () => {
           <p>
             <strong>Phone:</strong> {user.user.phone}
           </p>
-        </CardContent> :
-        <h1>
-          Loading
-        </h1>
-      }
+        </CardContent>
+      ) : (
+        <h1>Loading</h1>
+      )}
     </Card>
   );
-}
+};
+
 
 export default ProfileUser
