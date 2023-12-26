@@ -27,6 +27,8 @@ const MyDates = () => {
       event: selectedEvent,
       pack: selectedPack,
     };
+    console.log(newAppointment);
+
     setAppointments((prevAppointments) => [...prevAppointments, newAppointment]);
     updateLocalCalendar([...appointments, newAppointment]);
   
@@ -145,6 +147,12 @@ const MyDates = () => {
             <div>
               <strong>Hora:</strong> {appointment.time}
             </div>
+            <div>
+             <strong>event:</strong> {appointment.event}
+             </div>
+             <div>
+             <strong>pack:</strong> {appointment.pack}
+             </div>
             <div>
               <button type="button" onClick={() => handleDelete(index)}>
                 Eliminar Reserva

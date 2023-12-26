@@ -35,6 +35,7 @@ body {
   border-radius: 30px;
   background: white;
   cursor: pointer;
+  width: 120px;
 }
 
 /* Estilos para las flechas dentro de los botones */
