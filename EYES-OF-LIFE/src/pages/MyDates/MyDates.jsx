@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import './MyDates.css';
-import { formatNamedParameters } from 'sequelize/types/utils';
+
 
 
 const MyDates = () => {
@@ -89,35 +89,42 @@ const MyDates = () => {
             ))}
           </select>
         </div>
-        <div className="form-group">
-          <label htmlFor="event">Evento:</label>
-          <select
-            id="event"
-            value={selectedEvent}
-            onChange={(e) => setSelectedEvent(e.target.value)}
-            required
-          >
-            <option value="Boda">Boda</option>
-            <option value="Comunión">Comunión</option>
-            <option value="Bautizo">Bautizo</option>
-            <option value="Bebé">Bebé</option>
-            <option value="Empresa">Empresa</option>
-            <option value="Cumpleaños">Cumpleaños</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="pack">Pack:</label>
-          <select
-            id="pack"
-            value={selectedPack}
-            onChange={(e) => setSelectedPack(e.target.value)}
-            required
-          >
-            <option value="Estándar">Estándar</option>
-            <option value="Premium">Premium</option>
-            <option value="Deluxe">Deluxe</option>
-          </select>
-        </div>
+        <div className="form-group select-container">
+  <label htmlFor="event">Evento: </label>
+  <div id="event">
+    <span>{selectedEvent}</span>
+    <select
+      id="event"
+      value={selectedEvent}
+      onChange={(e) => setSelectedEvent(e.target.value)}
+      required
+    >
+    <option value="Boda">Boda</option>
+    <option value="Comunión">Comunión</option>
+    <option value="Bautizo">Bautizo</option>
+    <option value="Bebé">Bebé</option>
+    <option value="Empresa">Empresa</option>
+    <option value="Cumpleaños">Cumpleaños</option>
+  </select>
+  </div>
+</div>
+
+<div className="form-group select-container">
+  <label htmlFor="pack">Pack:</label>
+  <div id="pack">
+    <span>{selectedPack}</span>
+    <select
+      id="pack"
+      value={selectedPack}
+      onChange={(e) => setSelectedPack(e.target.value)}
+      required
+    >
+    <option value="Estándar">Estándar</option>
+    <option value="Premium">Premium</option>
+    <option value="Deluxe">Deluxe</option>
+  </select>
+</div>
+</div>
         <button type="button" onClick={handleSubmit}>
           Reservar Cita
         </button>
@@ -137,12 +144,6 @@ const MyDates = () => {
             </div>
             <div>
               <strong>Hora:</strong> {appointment.time}
-            </div>
-            <div>
-              <strong>Evento:</strong> {appointment.event}
-            </div>
-            <div>
-              <strong>Pack:</strong> {appointment.pack}
             </div>
             <div>
               <button type="button" onClick={() => handleDelete(index)}>
