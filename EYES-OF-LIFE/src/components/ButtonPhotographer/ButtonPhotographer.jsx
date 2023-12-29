@@ -4,7 +4,7 @@ const UserButton = ({photographer}) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate(`/photographer/${photographer}`);
+    navigate(`/photographers/${photographer}`);
   };
 
   return (

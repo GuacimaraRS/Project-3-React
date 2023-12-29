@@ -22,7 +22,21 @@ const getOneUser = async (id) => {
   }
 }
 
+const updateUser = async (body) => {
+  try {
+    const result = await api.put(`/user/profile`,body,{
+      headers: {
+        authorization: localStorage.token
+      }
+    })
+    return result.data
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export {
   getProfile,
-  getOneUser
+  getOneUser,
+  updateUser
 }

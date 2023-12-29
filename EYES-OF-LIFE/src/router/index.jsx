@@ -16,6 +16,7 @@ import PhotosGaleryPhotographer from "../pages/MyGalery/PhotosGalery/PhotosGaler
 import LayoutProfileUser from "../Layouts/LayoutProfileUser/LayoutProfileUser";
 import MyDatesUser from "../pages/ProfileUser/MyDatesUser/MyDatesUser";
 import ShowPhotographers from "../pages/ProfileUser/ShowPhotographers/ShowPhotographers";
+import ShowOnePhotographers from "../pages/ProfileUser/ShowPhotographers/ShowOnePhotographers";
 
 const router = createBrowserRouter([
   {
@@ -117,11 +118,11 @@ const router = createBrowserRouter([
           element: <ShowPhotographers />,
           
         },
-        // {
-        //   path: "/photographers/:id",
-        //   element: <ShowOnePhotographers />,
+        {
+          path: "/photographers/:id",
+          element: <ShowOnePhotographers />,
           
-        // }
+        }
        
       ]
 
