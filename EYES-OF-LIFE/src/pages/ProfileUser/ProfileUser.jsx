@@ -1,4 +1,5 @@
 
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -9,6 +10,10 @@ import './ProfileUser.css'
 
 import { getProfile, updateUser} from '../../services/userService'
 
+
+
+import React from 'react'
+import './ProfileUser.css'
 
 
 const ProfileUser = () => {

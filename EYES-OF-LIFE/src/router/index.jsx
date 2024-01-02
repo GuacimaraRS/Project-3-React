@@ -99,6 +99,14 @@ const router = createBrowserRouter([
         path: '/events-bebes',
         element: <EventsImages tipo="Bebes" />,
       },
+      {
+        path: "/profile-photographer/:photographerId",
+        element: <ProfilePhotographer />,
+      },
+      {
+        path: "/my-dates-user/:photographerId",
+        element: <MyDatesUser />,
+      },
     ],
   },
     {
