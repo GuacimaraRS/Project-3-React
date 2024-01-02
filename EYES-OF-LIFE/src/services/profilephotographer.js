@@ -12,4 +12,18 @@ const getProfilePhotographer = async () => {
       console.log(error)
     }
   } 
-export { getProfilePhotographer };
+
+  const updateProfilePhotographer = async (body) => {
+    try {
+      const result = await api.put(`/user/profile`,body,{
+        headers: {
+          authorization: localStorage.token
+        }
+      })
+      return result.data
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+export { getProfilePhotographer, updateProfilePhotographer };
