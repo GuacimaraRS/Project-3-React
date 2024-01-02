@@ -1,9 +1,4 @@
-import "./ProfilePhotographer.css";
-import A from "../../assets/images/A.png";
-import fue from "../../assets/images/fue.png";
-import fuerteventurasol from "../../assets/images/fuerteventurasol.jpg";
-
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { getProfilePhotographer, updateProfilePhotographer } from '../../services/profilephotographer';
 import './ProfilePhotographer.css';
 import A from '../../assets/images/A.png';
