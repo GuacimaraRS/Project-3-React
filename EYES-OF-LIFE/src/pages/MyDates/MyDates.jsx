@@ -1,31 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import './MyDates.css';
 
+
+
 const MyDates = () => {
-  const [name, setName] = useState('');
+  const location = useLocation();
+  const {name} = location.state || {name: ""};
+  console.log(name)
+ 
+  const [formName, setFormName] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
-  const [selectedEvent, setSelectedEvent] = useState('Boda');
-  const [selectedPack, setSelectedPack] = useState('Boda deluxe');
+  const [selectedEvent, setSelectedEvent] = useState(name.split(" ")[0]);
+  const [selectedPack, setSelectedPack] = useState(name.split(" ")[1])
   const [appointments, setAppointments] = useState([]);
+  
 
-  useEffect(() => {
-    const storedAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
-    setAppointments(storedAppointments);
-  }, []);
-
+ 
   const handleSubmit = () => {
     const newAppointment = {
-      name,
+      name: formName,
       date: selectedDate,
       time: selectedTime,
       event: selectedEvent,
       pack: selectedPack,
     };
-    setAppointments([...appointments, newAppointment]);
+    console.log(newAppointment);
+
+    setAppointments((prevAppointments) => [...prevAppointments, newAppointment]);
     updateLocalCalendar([...appointments, newAppointment]);
-    resetForm();
+  
   };
 
   const handleDelete = (index) => {
@@ -39,12 +45,14 @@ const MyDates = () => {
     localStorage.setItem('appointments', JSON.stringify(appointments));
   };
 
+/*Esta funcion puede crear un boton que resetee todo*/
   const resetForm = () => {
-    setName('');
+    setFormName('');
     setSelectedTime('');
-    setSelectedEvent('Boda');
-    setSelectedPack('Boda deluxe');
+    setSelectedEvent('');
+    setSelectedPack('');
   };
+
 
   return (
     <div className="my-dates-container">
@@ -55,14 +63,15 @@ const MyDates = () => {
           <input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={formName}
+            onChange={(e) =>setFormName(e.target.value)}
             required
           />
         </div>
         <div className="form-group-calendar">
           <label htmlFor="date">Fecha:</label>
           <Calendar
+          
             onChange={(date) => setSelectedDate(date)}
             value={selectedDate}
           />
@@ -82,35 +91,42 @@ const MyDates = () => {
             ))}
           </select>
         </div>
-        <div className="form-group">
-          <label htmlFor="event">Evento:</label>
-          <select
-            id="event"
-            value={selectedEvent}
-            onChange={(e) => setSelectedEvent(e.target.value)}
-            required
-          >
-            <option value="Boda">Boda</option>
-            <option value="Comunión">Comunión</option>
-            <option value="Bautizo">Bautizo</option>
-            <option value="Bebé">Bebé</option>
-            <option value="Empresa">Empresa</option>
-            <option value="Cumpleaños">Cumpleaños</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="pack">Pack:</label>
-          <select
-            id="pack"
-            value={selectedPack}
-            onChange={(e) => setSelectedPack(e.target.value)}
-            required
-          >
-            <option value="Boda deluxe">Boda deluxe</option>
-            <option value="Premium">Premium</option>
-            <option value="Deluxe">Deluxe</option>
-          </select>
-        </div>
+        <div className="form-group select-container">
+  <label htmlFor="event">Evento: </label>
+  <div id="event">
+    <span>{selectedEvent}</span>
+    <select
+      id="event"
+      value={selectedEvent}
+      onChange={(e) => setSelectedEvent(e.target.value)}
+      required
+    >
+    <option value="Boda">Boda</option>
+    <option value="Comunión">Comunión</option>
+    <option value="Bautizo">Bautizo</option>
+    <option value="Bebé">Bebé</option>
+    <option value="Empresa">Empresa</option>
+    <option value="Cumpleaños">Cumpleaños</option>
+  </select>
+  </div>
+</div>
+
+<div className="form-group select-container">
+  <label htmlFor="pack">Pack:</label>
+  <div id="pack">
+    <span>{selectedPack}</span>
+    <select
+      id="pack"
+      value={selectedPack}
+      onChange={(e) => setSelectedPack(e.target.value)}
+      required
+    >
+    <option value="Estándar">Estándar</option>
+    <option value="Premium">Premium</option>
+    <option value="Deluxe">Deluxe</option>
+  </select>
+</div>
+</div>
         <button type="button" onClick={handleSubmit}>
           Reservar Cita
         </button>
@@ -132,11 +148,11 @@ const MyDates = () => {
               <strong>Hora:</strong> {appointment.time}
             </div>
             <div>
-              <strong>Evento:</strong> {appointment.event}
-            </div>
-            <div>
-              <strong>Pack:</strong> {appointment.pack}
-            </div>
+             <strong>event:</strong> {appointment.event}
+             </div>
+             <div>
+             <strong>pack:</strong> {appointment.pack}
+             </div>
             <div>
               <button type="button" onClick={() => handleDelete(index)}>
                 Eliminar Reserva
@@ -148,5 +164,6 @@ const MyDates = () => {
     </div>
   );
 };
+
 
 export default MyDates;
