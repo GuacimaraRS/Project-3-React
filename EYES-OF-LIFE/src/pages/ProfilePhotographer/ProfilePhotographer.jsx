@@ -1,64 +1,122 @@
-import "./ProfilePhotographer.css";
-import A from "../../assets/images/A.png";
-import fue from "../../assets/images/fue.png";
-import fuerteventurasol from "../../assets/images/fuerteventurasol.jpg";
+import React, { useState, useEffect } from 'react';
+import { getProfilePhotographer, updateProfilePhotographer } from '../../services/profilephotographer';
+import './ProfilePhotographer.css';
+import A from '../../assets/images/A.png';
+import EditForm from './EditForm';
 
 const ProfilePhotographer = () => {
+  const [userData, setUserData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [editedAboutMe, setEditedAboutMe] = useState(''); // Cambiado de editedData a editedAboutMe
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const data = await getProfilePhotographer();
+        console.log(data);
+        setUserData(data);
+      } catch (error) {
+        console.error('Error al cargar los datos del perfil del fotógrafo:', error);
+        setError('Error al cargar los datos del perfil del fotógrafo. Consulta la consola para más detalles.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  const handleEditProfile = (section) => {
+    setEditMode(!editMode);
+    // Puedes inicializar los datos editados aquí según la sección
+    setEditedAboutMe(userData.user.infoPhotoGrapher.aboutMe || '');
+  };
+
+  const handleSaveProfile = async () => {
+    try {
+      // Actualiza el estado local con la información editada
+      setUserData((prevUserData) => ({
+        ...prevUserData,
+        user: {
+          ...prevUserData.user,
+          infoPhotoGrapher: {
+            ...prevUserData.user.infoPhotoGrapher,
+            aboutMe: editedAboutMe,
+          },
+        },
+      }));
+
+      // Llama a la función para actualizar la información en la base de datos
+      await updateProfilePhotographer({ aboutMe: editedAboutMe });
+      
+      // Finaliza el modo de edición
+      setEditMode(false);
+
+      console.log("Datos del usuario actualizados con éxito");
+    } catch (error) {
+      console.error("Error al actualizar el usuario:", error);
+    }
+  };
+
   return (
-    <div className="profile-container">
-      {/* Sección de información personal */}
-      <div className="left-top-section">
-        <div className="left-column">
-          <img src={A} alt="Mi Perfil" className="profile-image" />
-          <div className="personal-details">
-            <h2 className="profile-name">Alex</h2>
-            <p className="profile-description">
-              Soy un apasionado fotógrafo con una visión única y creativa, especializado en retratos auténticos y emotivos.
-            </p>
+    <>
+      {loading ? (
+        <h1>Cargando...</h1>
+      ) : error ? (
+        <h1>{error}</h1>
+      ) : (
+        <div className="profile-container">
+          <div className="left-top-section">
+            <div className="left-column">
+              <img src={A} alt="Mi Perfil" className="profile-image" />
+              <div className="personal-details">
+                <h2 className="profile-name">{userData.user && userData.user.name_user}</h2>
+                <p className="profile-description">{userData && userData.user.infoPhotoGrapher.description || 'Descripción no disponible'}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-info">
+            <h2>Contacto</h2>
+            {userData && userData.user.infoPhotoGrapher ? (
+              <>
+                <p>Número de teléfono: {userData.user.phone}</p>
+                <p>Edad: {userData.user.age} años</p>
+                <p>Estudios: {userData.user.studies}</p>
+                <p>Dirección: {userData.user.address}</p>
+                <p>Años de experiencia profesional: {userData.user.experience}</p>
+              </>
+            ) : (
+              <p>Cargando información...</p>
+            )}
+          </div>
+
+          <div className="right-section">
+            <div className="info-box about-me">
+              <h2>Sobre Mí</h2>
+              <button onClick={() => handleEditProfile('aboutMe')}>Editar</button>
+              {editMode ? (
+                <EditForm data={editedAboutMe} onSave={(newData) => handleSaveProfile('aboutMe', newData)} />
+              ) : (
+                <p className="profile-description">{userData && userData.user.infoPhotoGrapher.aboutMe || 'Sin información disponible'}</p>
+              )}
+            </div>
+
+            <div className="info-box skills">
+              <h2>Habilidades Fotográficas</h2>
+              <button onClick={() => handleEditProfile('skills')}>Editar</button>
+              {editMode ? (
+                <EditForm data={editedAboutMe} onSave={(newData) => handleSaveProfile('skills', newData)} />
+              ) : (
+                <p className="profile-description">{userData && userData.user.infoPhotoGrapher.description || 'Sin información disponible'}</p>
+              )}
+            </div>
           </div>
         </div>
-
-        {/* Información de contacto */}
-        <div className="contact-info">
-          <h2>Contacto</h2>
-          <p>Número de teléfono: 000-000-000</p>
-          <p>Edad: 32 años</p>
-          <p>Estudios: Estudios cursados en la Universidad Complutense de Madrid de Bellas Artes</p>
-          <p>Dirección: 454, Calle Serrato (Las Palmas de Gran Canaria)</p>
-          <p>Años de experiencia profesional: 4 años como amateur y 6 años como profesional</p>
-        </div>
-      </div>
-
-      {/* Sección de información adicional */}
-      <div className="right-section">
-        {/* Recuadro "Sobre Mí" con imagen */}
-        <div className="info-box about-me">
-          <h2>Sobre Mí</h2>
-          <img src={fue} alt="Fotografía Sobre Mí" className="additional-image" />
-          <p className="profile-description">
-            Soy un apasionado fotógrafo con una visión única y creativa. Destaco en composición visual y manejo equipos de software de edición avanzados, así como de iluminación natural y artificial.
-            He participado en series de bajo presupuesto y en eventos de fotografía a gran escala.
-            Tengo un gran carisma a la hora de crear y transmitir sentimientos a través de la fotografía.
-            Siempre estoy en busca de aventuras y experiencias creativas.
-            ¡Estoy ansioso de ser partícipe de tu próxima historia visual!
-          </p>
-        </div>
-
-        {/* Recuadro con habilidades fotográficas y otra imagen */}
-        <div className="info-box skills">
-          <h2>Habilidades Fotográficas</h2>
-          <img src={fuerteventurasol} alt="Habilidades Fotográficas" className="additional-image" />
-          <p className="profile-description">
-            Experiencia destacada en composición visual, técnica fotográfica.
-            Uso avanzado de equipos y software de edición.
-            Habilidad para capturar momentos emotivos y contar historias.
-            Fortalezas en la captura de paisajes naturales y urbanos, con especialización en fotografía documental, fotoperiodismo y eventos.
-          </p>
-          <div>
-        </div>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

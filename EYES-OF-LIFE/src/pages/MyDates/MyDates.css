@@ -12,36 +12,101 @@ body {
 .my-dates-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 15px; 
-  margin-top: 15px; 
+  align-items: center;
+  width: 150%;
+  margin: 50px auto;
+  padding: 15px;
 }
-
 
 .appointment-form {
-  display:contents;
-  width: 100%;
-  margin-bottom: 10px;
+  width: 80%;
+  margin-bottom: 20px;
+
 }
+
+
+/* Estilos para los botones */
+#event,
+#pack {
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+  border: none; /* Cambiado de 1px solid #ccc a none */
+  border-radius: 30px;
+  background: white;
+  cursor: pointer;
+  width: 120px;
+}
+
+/* Estilos para las flechas dentro de los botones */
+#event::after,
+#pack::after {
+  content: "▼";
+  margin-left: 5px;
+}
+
+/* Estilos para ocultar visualmente el texto pero mantener accesibilidad */
+#event select,
+#pack select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0; /* Cambiado de 100% a 0 */
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Estilos para los elementos de la lista desplegable */
+#event select option,
+#pack select option {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Añadimos un contenedor extra para ajustar el diseño */
+.select-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Alineamos las flechas con el contenido del contenedor */
+.select-container::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* Alineamos el texto y la flecha verticalmente */
+.select-container span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+
+
 
 .appointment-form input,
 .appointment-form select {
-  margin-bottom: 2px;
-  padding: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
   border: 3px solid #ccc;
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
-.form-group-calendar{
+.form-group-calendar .react-calendar {
   display: flex;
-  flex-direction: row;
-  margin-top: -22%;
+  flex-direction: column;
   align-items: center;
-  font-size: 35px;
+  font-size: 30px;
+  margin-top: 5%;
   width: 100%;
-  
 }
+
 
 input,
 select,
@@ -64,9 +129,10 @@ button:hover {
   background-color: #fbd081;
 }
 
-.form-group{
+.form-group {
   width: 100%;
-  margin-top:-25px;
+  margin-top: 25px;
+  
 }
 
 .citas-reservadas {
@@ -74,20 +140,19 @@ button:hover {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1200px;
-  width: 100%;
-  
+  margin: 50px auto;
 }
 
 .citas-reservadas h2 {
   width: 100%;
   text-align: center;
-  font-size: 60px;
-  margin-bottom: 30px;
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
 .appointment {
   width: calc(35.33% - 20px);
-  margin: 50px 10px 100px;
+  margin: 20px 10px;
   text-align: center;
 }
 
@@ -97,13 +162,13 @@ button:hover {
 }
 
 .cita-reservada p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .appointment strong {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .appointment div {
-  font-size: 23px;
+  font-size: 18px;
 }
