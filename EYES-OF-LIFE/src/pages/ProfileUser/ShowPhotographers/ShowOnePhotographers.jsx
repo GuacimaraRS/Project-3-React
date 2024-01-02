@@ -44,23 +44,22 @@ const ShowOnePhotographer = () => {
     
       return (
         <div>
+          <button onClick={handleEditClick}>Galeria</button>
+          <button onClick={handleSaveClick}>Reservar</button>
+          <button onClick={handleDeleteClick}>Event</button>
+          <button onClick={handleBackClick}>Volver</button>
+
           <header>
             <h1>Datos del Fotógrafo</h1>
           </header>
-    
+
           <div className="container">
             <h2>Información del Fotógrafo</h2>
             <p><strong>Nombre:</strong> </p>
             <p><strong>Email:</strong> </p>
             <p><strong>Teléfono:</strong> </p>
-            {/* Agrega más campos según tus necesidades */}
-    
-            <h2>Botones</h2>
-            <button onClick={handleEditClick}>Galeria</button>
-            <button onClick={handleSaveClick}>Reservar</button>
-            <button onClick={handleDeleteClick}>Event</button>
-            <button onClick={handleBackClick}>Volver</button>
           </div>
+          
         </div>
       );
     };
