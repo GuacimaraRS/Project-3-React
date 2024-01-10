@@ -85,41 +85,31 @@ const MyDatesUser = () => {
 
   return (
     <div className="my-dates-container">
-      <h2>Reservar Cita con {selectedPhotographer && selectedPhotographer.name}</h2>
-
-      <div className="form-group">
-        <label htmlFor="searchQuery">Buscar Fotógrafo por Nombre:</label>
-        <input
-          type="text"
-          id="searchQuery"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button type="button" onClick={handleSearch}>
-          Buscar
-        </button>
-      </div>
-
-      {/* Resto del formulario */}
-      <button type="button" className="custom-button" onClick={handleAppointmentSubmission}>
-        Reservar Cita
-      </button>
-
-      <div className="divider" />
-
       <div className="citas-reservadas">
         <h2>Citas Reservadas</h2>
-        {Object.entries(appointments).map(([key, appointment]) => (
-          <div key={key} className="appointment">
-            {/* Mostrar detalles de la cita */}
-            <button type="button" onClick={() => handleDeleteAppointment(key)}>
-              Eliminar Reserva
-            </button>
-          </div>
-        ))}
+        <div className="appointment-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Fotógrafo</th>
+                <th>Evento</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[1, 2, 3].map((index) => (
+                <tr key={index} className="appointment">
+                  <td className="table-cell">Fecha {index}</td>
+                  <td className="table-cell">Fotógrafo {index}</td>
+                  <td className="table-cell">Evento {index}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
-};
+              }
 
 export default MyDatesUser;
