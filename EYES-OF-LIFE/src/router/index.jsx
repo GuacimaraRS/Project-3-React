@@ -16,8 +16,7 @@ import PhotosGaleryPhotographer from "../pages/MyGalery/PhotosGalery/PhotosGaler
 import LayoutProfileUser from "../Layouts/LayoutProfileUser/LayoutProfileUser";
 import MyDatesUser from "../pages/ProfileUser/MyDatesUser/MyDatesUser";
 import ShowPhotographers from "../pages/ProfileUser/ShowPhotographers/ShowPhotographers";
-
-
+import CustomMessages from "../pages/ProfileUser/MyMessagesUser/MessagesUser";
 
 const router = createBrowserRouter([
   {
@@ -114,10 +113,10 @@ const router = createBrowserRouter([
       path: "/",
       element: <LayoutProfileUser />,
       children: [
-        // {
-        //   path: "/my-messages-user",
-        //   element: <CustomMessages />, 
-        // },
+         {
+           path: "/my-messages-user",
+          element: <CustomMessages />, 
+         },
         {
           path: "/profile-user",
           element: <ProfileUser />,

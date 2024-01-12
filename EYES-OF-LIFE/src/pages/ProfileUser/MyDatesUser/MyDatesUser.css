@@ -1,57 +1,36 @@
 .my-dates-container {
-  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh; 
 }
 
-.my-dates-container .appointment-table {
-  width: 80%; /* Ajusta el ancho de la tabla según tus preferencias */
-  margin: 20px auto; /* Centrar la tabla */
+table {
   border-collapse: collapse;
+  width: 30%; 
+  margin-bottom: 5px;
+  margin-right: 35%;
 }
 
-.my-dates-container .appointment-table th,
-.my-dates-container .appointment-table td {
-  border: 2px solid #fff; /* Borde blanco */
-  padding: 18px;
-  text-align: center;
-}
-
-.my-dates-container .appointment-table th {
-  background-color: #caa841b4;
-  color: white;
-}
-
-.my-dates-container .appointment-table tr:hover {
-  background-color: #f5f5f5;
-}
-
-.my-dates-container .appointment .table-cell {
-  font-size: 18px;
-}
-
-.my-dates-container .appointment select {
-  width: 100%;
+th, td {
+  border: 2px solid #ddd;
   padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
+  text-align: left;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: #333;
 }
-
-.my-dates-container .appointment button {
-  background-color: #e74c3c;
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
-  font-size: 16px;
+th {
+  background-color: #f2f2f2;
+}
+button {
+  padding: 10px;
+  margin: 5px;
   cursor: pointer;
-  border-radius: 6px;
-  margin-top: 8px;
+  font-size: 25px;
 }
 
-.my-dates-container .appointment button:hover {
-  background-color: #c0392b;
+button:hover {
+  background-color: #ddd;
 }
