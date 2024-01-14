@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffeb3b; /* Fondo amarillo */
+}
+
+.about-container {
+  max-width: 100%; /* Cambiado a 100% para ocupar todo el ancho */
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 15px;
+  background-color: #f9f0d3e5;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 75%; /* Cambiado a 75% de ancho */
+  margin: 0 auto; /* Centrar el contenido */
+}
+
+.about-header h1 {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.about-header p {
+  color: #666;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.team-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centrar el contenido */
+  margin-top: 30px;
+}
+
+.team-member {
+  width: calc(20% - 20px); /* Cambiado a 25% de ancho */
+  margin-bottom: 30px;
+  margin-right: 2px; /* Agregado 2px de separación */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-member:last-child {
+  margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+
+.team-member:hover {
+  transform: scale(1.05);
+}
+
+.team-member img {
+  width: 90%;
+  height: 40%; /* Aumentado un 10% la altura */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.member-info {
+  background-color: #f9f0d3e5;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+}
+
+.member-info h2 {
+  color: #333;
+  font-size: 1.5em; /* Ajusté el tamaño del título */
+  margin-bottom: 10px;
+}
+
+.member-info p {
+  color: #666;
+  font-size: 1em; /* Ajusté el tamaño del texto */
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+@media screen and (max-width: 768px) {
+  .team-member {
+    width: calc(50% - 20px);
+  }
+}
