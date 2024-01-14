@@ -1,18 +1,10 @@
+// ProfileUser.jsx
+import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-
-
-import { useState, useEffect } from 'react'
-import './ProfileUser.css'
-
-import { getProfile, updateUser} from '../../services/userService'
-
-
-
-import React from 'react'
-import './ProfileUser.css'
-
+import { getProfile, updateUser } from '../../services/userService';
+import './ProfileUser.css';
 
 const ProfileUser = () => {
   const [user, setUser] = useState({});
@@ -28,21 +20,16 @@ const ProfileUser = () => {
       const updatedUserData = {
         name_user: user.user.name_user,
         email: user.user.email,
-        phone: user.user.phone        
+        phone: user.user.phone,
       };
-  
+
       await updateUser(updatedUserData);
       setEditing(false);
-      console.log("Datos del usuario actualizados con éxito");
-
+      console.log('Datos del usuario actualizados con éxito');
     } catch (error) {
-      console.error("Error al actualizar el usuario:", error);
-
+      console.error('Error al actualizar el usuario:', error);
     }
   };
-
-  
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,7 +37,6 @@ const ProfileUser = () => {
         const userData = await getProfile();
         setUser(userData);
         setLoading(false);
-      
       } catch (error) {
         console.error('Error fetching data:', error);
         setLoading(false);
@@ -61,43 +47,61 @@ const ProfileUser = () => {
   }, []);
 
   return (
-    <Card className="card">
-    {Object.keys(user).length !== 0 && !loading ? (
-      <CardContent className="cardContainer">
-        <CardMedia component="img" height="auto" image={user.user.imagen} alt="" />
-        <h3>
-        <strong>Name:</strong> {editing ? (
-          <input type="text" value={user.user.name_user} onChange={(e) => setUser({ ...user, user: { ...user.user, name_user: e.target.value } })}/>
-        ) : (
-          user.user.name_user
-        )}
-      </h3>
-      <h3>
-        <strong>Email:</strong> {editing ? (
-          <input type="text" value={user.user.email} onChange={(e) => setUser({ ...user, user: { ...user.user, email: e.target.value } })} />
-        ) : (
-          user.user.email
-        )}
-      </h3>
-      <p>
-        <strong>Phone:</strong> {editing ? (
-          <input type="text" value={user.user.phone} onChange={(e) => setUser({ ...user, user: { ...user.user, phone: e.target.value } })}/>
-        ) : (
-          user.user.phone
-        )}
-      </p>
-        {editing ? (
-          <button onClick={handleSaveClick}>Guardar</button>
-        ) : (
-          <button onClick={handleEditClick}>Editar</button>
-        )}
-      </CardContent>
-    ) : (
-      <h1>Loading</h1>
-    )}
-  </Card>
+    <Card className="user-card" style={{ backgroundColor: ' #f4e3ca' }}>
+      {Object.keys(user).length !== 0 && !loading ? (
+        <CardContent className="card-content">
+          <CardMedia component="img" height="200" image={user.user.imagen} alt="Profile" id="profile-image" />
+          <h3 id="name">
+            <strong>Name:</strong>{' '}
+            {editing ? (
+              <input
+                type="text"
+                value={user.user.name_user}
+                onChange={(e) => setUser({ ...user, user: { ...user.user, name_user: e.target.value } })}
+              />
+            ) : (
+              user.user.name_user
+            )}
+          </h3>
+          <h3 id="email">
+            <strong>Email:</strong>{' '}
+            {editing ? (
+              <input
+                type="text"
+                value={user.user.email}
+                onChange={(e) => setUser({ ...user, user: { ...user.user, email: e.target.value } })}
+              />
+            ) : (
+              user.user.email
+            )}
+          </h3>
+          <p id="phone">
+            <strong>Phone:</strong>{' '}
+            {editing ? (
+              <input
+                type="text"
+                value={user.user.phone}
+                onChange={(e) => setUser({ ...user, user: { ...user.user, phone: e.target.value } })}
+              />
+            ) : (
+              user.user.phone
+            )}
+          </p>
+          {editing ? (
+            <button onClick={handleSaveClick} id="save-button">
+              Guardar
+            </button>
+          ) : (
+            <button onClick={handleEditClick} id="edit-button">
+              Editar
+            </button>
+          )}
+        </CardContent>
+      ) : (
+        <h1>Loading</h1>
+      )}
+    </Card>
   );
 };
 
-
-export default ProfileUser
+export default ProfileUser;
