@@ -19,69 +19,9 @@ body {
 }
 
 .appointment-form {
-  width: 80%;
-  margin-bottom: 20px;
-
-}
-
-
-/* Estilos para los botones */
-#event,
-#pack {
-  position: relative;
-  overflow: hidden;
-  padding: 10px;
-  border: none; /* Cambiado de 1px solid #ccc a none */
-  border-radius: 30px;
-  background: white;
-  cursor: pointer;
-  width: 120px;
-}
-
-/* Estilos para las flechas dentro de los botones */
-#event::after,
-#pack::after {
-  content: "▼";
-  margin-left: 5px;
-}
-
-/* Estilos para ocultar visualmente el texto pero mantener accesibilidad */
-#event select,
-#pack select {
-  position: absolute;
-  top: 0;
-  left: 0;
+  display:contents;
   width: 100%;
-  height: 0; /* Cambiado de 100% a 0 */
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Estilos para los elementos de la lista desplegable */
-#event select option,
-#pack select option {
-  position: absolute;
-  left: -9999px;
-}
-
-/* Añadimos un contenedor extra para ajustar el diseño */
-.select-container {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Alineamos las flechas con el contenido del contenedor */
-.select-container::before {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
-
-/* Alineamos el texto y la flecha verticalmente */
-.select-container span {
-  display: inline-block;
-  vertical-align: middle;
+  margin-bottom: 10px;
 }
 
 
@@ -99,10 +39,14 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .form-group-calendar .react-calendar {
 =======
 .form-group-calendar {
 >>>>>>> 06b814e323662f70656a38b3ad4970829b3fcfcf
+=======
+.form-group-calendar{
+>>>>>>> DANITO
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,12 +79,16 @@ button:hover {
 
 .form-group {
   width: 100%;
+<<<<<<< HEAD
   margin-top: 25px;
 <<<<<<< HEAD
   
 =======
 
 >>>>>>> 06b814e323662f70656a38b3ad4970829b3fcfcf
+=======
+  margin-top:-25px;
+>>>>>>> DANITO
 }
 
 .citas-reservadas {
