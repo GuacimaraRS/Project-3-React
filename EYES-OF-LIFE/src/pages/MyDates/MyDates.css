@@ -1,174 +1,102 @@
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  font-family: Arial, sans-serif;
-  background-color: #fffedbc1;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
 .my-dates-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150%;
-  margin: 50px auto;
-  padding: 15px;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1200px; 
+  margin: 0 auto;
 }
 
 .appointment-form {
-  width: 80%;
-  margin-bottom: 20px;
-
-}
-
-
-/* Estilos para los botones */
-#event,
-#pack {
-  position: relative;
-  overflow: hidden;
-  padding: 10px;
-  border: none; /* Cambiado de 1px solid #ccc a none */
-  border-radius: 30px;
-  background: white;
-  cursor: pointer;
-  width: 120px;
-}
-
-/* Estilos para las flechas dentro de los botones */
-#event::after,
-#pack::after {
-  content: "▼";
-  margin-left: 5px;
-}
-
-/* Estilos para ocultar visualmente el texto pero mantener accesibilidad */
-#event select,
-#pack select {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0; /* Cambiado de 100% a 0 */
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Estilos para los elementos de la lista desplegable */
-#event select option,
-#pack select option {
-  position: absolute;
-  left: -9999px;
-}
-
-/* Añadimos un contenedor extra para ajustar el diseño */
-.select-container {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  max-width: 400px;
+  margin-top: 20px;
 }
 
-/* Alineamos las flechas con el contenido del contenedor */
-.select-container::before {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
+.form-group-calendar {
+  max-width: 400px;
+  margin-right: 20px;
 }
 
-/* Alineamos el texto y la flecha verticalmente */
-.select-container span {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-
-
-
-
-
-.appointment-form input,
-.appointment-form select {
-  margin-bottom: 10px;
-  padding: 15px;
-  border: 3px solid #ccc;
-  border-radius: 15px;
-  font-size: 18px;
-}
-
-.form-group-calendar .react-calendar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 30px;
-  margin-top: 5%;
+.appointment-table {
   width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
 }
 
-
-input,
-select,
-button {
+.appointment-table th,
+.appointment-table td {
   padding: 15px;
   border: 1px solid #ccc;
-  border-radius: 30px;
+  text-align: left;
 }
 
-button {
-  background-color: #FFFEDB;
-  color: #0E3863;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
+.appointment-table th {
   background-color: #fbd081;
 }
 
-.form-group {
+.appointment-table button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #FFFEDB;
+  color: #0E3863;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-table button:hover {
+  background-color: #fbd081;
+}
+
+.form-group-calendar {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.react-calendar {
+  font-size: 16px;
   width: 100%;
-  margin-top: 25px;
-  
+  max-width: 400px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.react-calendar__tile {
+  padding: 10px;
+}
+
+.react-calendar__tile--now {
+  background-color: #fbd081;
+}
+
+.react-calendar__tile--active {
+  background-color: #0E3863;
+  color: #FFFEDB;
+}
+
+.react-calendar__tile--range {
+  background-color: #fbd081;
+}
+
+.appointment-calendar {
+  max-width: 400px;
+  margin-right: 20px;
 }
 
 .citas-reservadas {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 50px auto;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .citas-reservadas h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.appointment-table {
   width: 100%;
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-.appointment {
-  width: calc(35.33% - 20px);
-  margin: 20px 10px;
-  text-align: center;
-}
-
-.cita-reservada h3 {
-  margin: 0;
-  font-size: 25px;
-}
-
-.cita-reservada p {
-  font-size: 18px;
-}
-
-.appointment strong {
-  font-size: 20px;
-}
-
-.appointment div {
-  font-size: 18px;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
