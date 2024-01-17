@@ -71,7 +71,7 @@ const ProfilePhotographer = () => {
       ) : (
         <>
         <div className="profile-container">
-              <h1 className="profile-name">Hola Soy Juana</h1>
+              <h1 className="profile-name">Hola Soy Danito</h1>
               <img src={A} alt="Mi Perfil" className="profile-image" /> 
               <button onClick={() => handleEditProfile('aboutMe')} className='buttonEdit'>Editar Perfil</button>
                

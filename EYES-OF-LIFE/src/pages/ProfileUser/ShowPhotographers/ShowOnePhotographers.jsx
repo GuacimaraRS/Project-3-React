@@ -57,8 +57,11 @@ const ShowOnePhotographer = () => {
                 component="img"
                 height="300"
                 image={user.imagen}
-                alt=""
+                alt="Foto del fotografo" 
+               
               />
+             
+
       <div className="container">
         <h2>Información del Fotógrafo</h2>
         <p><strong>Nombre:</strong> {user.name_user}</p>

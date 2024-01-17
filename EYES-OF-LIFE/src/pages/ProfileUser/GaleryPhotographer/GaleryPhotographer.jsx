@@ -13,7 +13,7 @@ const GaleryPhotographer = () => {
                 const result = await getPhotosGaleryPhotographer();
                 console.log('Resultado de las fotos:', result);
                 setPhotos(result);
-               
+
             } catch (error) {
                 console.error('Error fetching photos:', error);
             }
@@ -37,30 +37,29 @@ const GaleryPhotographer = () => {
 
 
     return (
-        <div>
-            <h1 className='h1'>Galeria</h1>
-            <div className="button-container">
-                <button className="button-PhotoGrapher" onClick={handleGaleryClick}>Galeria</button>
-                <button className="button-PhotoGrapher" onClick={handleReservaClick}>Reservar</button>
-                <button className="button-PhotoGrapher" onClick={handleEventClick}>Eventos</button>
-                <Link className="button-Back" to="#" onClick={() => window.history.back()}>Volver</Link>
+        <>
+            <div>
+                <h1 className='h1'>Galeria</h1>
+                <div className="button-containerGalery">
+                    <button className="button-PhotoGrapher2" onClick={handleGaleryClick}>Galeria</button>
+                    <button className="button-PhotoGrapher2" onClick={handleReservaClick}>Reservar</button>
+                    <button className="button-PhotoGrapher2" onClick={handleEventClick}>Eventos</button>
+                    <Link className="button-Back2" to="#" onClick={() => window.history.back()}>Volver</Link>
+                </div>
             </div>
-           
             {Array.isArray(photos.message) && photos.message.length > 0 ? (
-            photos.message.map((photo) => (
-                <Card key={photo.id} sx={{ maxWidth: 500 }}>
-                    <CardMedia
-                        className="photos"
-                        sx={{ height: 0, paddingTop: '90%' }}
-                        image={photo.url}
-                    />
-                </Card>
-            ))  
-        ) : (
-            <p>No hay fotos disponibles.</p>
-        )}
-        
-    </div>
+                <div className="photo-grid">
+                    {photos.message.map((photo) => (
+                        <div key={photo.id} className="photo-item">
+                            <img src={photo.url} alt={`Photo ${photo.id}`} />
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <p>No hay fotos disponibles.</p>
+            )}
+
+        </>
     );
 };
 
