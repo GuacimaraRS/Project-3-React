@@ -20,6 +20,8 @@ import ShowOnePhotographers from "../pages/ProfileUser/ShowPhotographers/ShowOne
 import GaleryPhotographer from "../pages/ProfileUser/GaleryPhotographer/GaleryPhotographer"
 import EventPhotographer from "../pages/ProfileUser/EventsPhotographer/EventPhotographer";
 import EventBoda from "../pages/ProfileUser/EventsPhotographer/EventBoda";
+import CustomMessages from "../pages/ProfileUser/MyMessagesUser/MessagesUser";
+import ReservarCitas from "../pages/ProfileUser/ReservarCitas/ReservarCitas";
 
 const router = createBrowserRouter([
   {
@@ -120,6 +122,10 @@ const router = createBrowserRouter([
       path: "/",
       element: <LayoutProfileUser />,
       children: [
+         {
+           path: "/my-messages-user",
+          element: <CustomMessages />, 
+         },
         {
           path: "/profile-user",
           element: <ProfileUser />,
@@ -141,6 +147,11 @@ const router = createBrowserRouter([
         {
           path: "/photographers/:id/galery",
           element: <GaleryPhotographer />,
+          
+        },
+        {
+          path: "/photographers/:id/reservar",
+          element: <ReservarCitas />,
           
         },
         {

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { getProfilePhotographer, updateProfilePhotographer } from '../../services/profilephotographer';
 import './ProfilePhotographer.css';
-import A from '../../assets/images/B.Peña-4.jpg';
+import A from '../../assets/images/danito.jpg'
+
 
 
 const ProfilePhotographer = () => {

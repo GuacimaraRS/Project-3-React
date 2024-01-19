@@ -5,31 +5,32 @@
 }
 
 .button-containerGalery > * {
-    margin-right: 10px; /* Ajusta el valor según el espacio que desees entre los botones */
+    margin-right: 10px; 
 }
 
 .button-containerGalery > *:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último elemento para evitar espacio adicional */
+    margin-right: 0;
 }
 .photo-grid {
     display: flex;
     flex-wrap: wrap;
-    margin: -10px; /* Espacio negativo para compensar el espacio entre las fotos */
+    margin: -10px; 
 }
 
 .photo-item {
-    flex: 2 0 calc(10.111% - 10px); /* Cada foto ocupa el 33.333% del ancho y tiene un margen de 10px a la derecha e izquierda */
-    margin: 20px;
+    flex: 2 0 calc(13% - 30px); 
+    margin: 10px;
     overflow: hidden; 
 }
 
 .photo-item img {
-    width: 100%;
-    height:auto;;
+    width: 280px;
+    height:140px;
     display: block;
-    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin deformarla */
+    object-fit: cover;
     display: block;
-    max-width: 100%; /* Para asegurarse de que la imagen no sea más grande que su contenedor */
+    
+    
 }
 .button-PhotoGrapher2{
     background-color: rgb(216, 183, 49);

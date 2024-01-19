@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import './GaleryPhotographer.css'
 
+
 const GaleryPhotographer = () => {
     const [photos, setPhotos] = useState([]);
     useEffect(() => {
@@ -27,8 +28,8 @@ const GaleryPhotographer = () => {
         navigate(`/photographers/${photographer}/galery`);
     };
 
-    const handleReservaClick = () => {
-
+    const handleReservaClick = (photographer) => {
+        navigate(`/photographers/${photographer}/reservar`);
     };
 
     const handleEventClick = (photographer) => {
@@ -50,9 +51,13 @@ const GaleryPhotographer = () => {
             {Array.isArray(photos.message) && photos.message.length > 0 ? (
                 <div className="photo-grid">
                     {photos.message.map((photo) => (
-                        <div key={photo.id} className="photo-item">
-                            <img src={photo.url} alt={`Photo ${photo.id}`} />
-                        </div>
+                       <Card key={photo.id} className="photo-item">
+                       <CardMedia
+                           component="img"
+                           alt={`Photo ${photo.id}`}
+                           image={photo.url}
+                       />
+                   </Card>
                     ))}
                 </div>
             ) : (

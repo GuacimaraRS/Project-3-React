@@ -1,6 +1,6 @@
 import React from 'react';
 import './MyCalendar.css';
-
+//NO ESTA FUNCIONANDO
 const Calendar = ({ appointments, hours }) => {
   return (
     <div className="calendar">

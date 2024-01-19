@@ -6,6 +6,8 @@ import CardMedia from '@mui/material/CardMedia';
 import { getProfile, updateUser } from '../../services/userService';
 import './ProfileUser.css';
 
+
+
 const ProfileUser = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);

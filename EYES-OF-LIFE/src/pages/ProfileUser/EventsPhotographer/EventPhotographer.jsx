@@ -11,8 +11,8 @@ const EventPhotographer = () => {
     navigate(`/photographers/${photographer}/galery`);
   };
 
-  const handleReservaClick = () => {
-
+  const handleReservaClick = (photographer) => {
+    navigate(`/photographers/${photographer}/reservar`);
   };
 
   const handleEventClick = (photographer) => {

@@ -1,33 +1,32 @@
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  font-family: Arial, sans-serif;
-  background-color: #fffedbc1;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
 .my-dates-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150%;
-  margin: 50px auto;
-  padding: 15px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+}
+.left-section {
+  flex: 1;
+  max-width: 800px; /* Ajusta según tus preferencias */
+  margin-right: 800px;
 }
 
+.right-section {
+  flex: 1;
+  max-width: 200px;
+  margin-top: 150px; /* Ajusta según tus preferencias */
+}
+.reservas{
+  color:#0E3863;
+}
+.buttonReserva{
+  margin-bottom: 50px;
+}
 .appointment-form {
   display:contents;
   width: 100%;
-  margin-bottom: 10px;
+
 }
-
-
-
-
-
 
 .appointment-form input,
 .appointment-form select {
@@ -38,93 +37,110 @@ body {
   font-size: 18px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-.form-group-calendar .react-calendar {
-=======
-.form-group-calendar {
->>>>>>> 06b814e323662f70656a38b3ad4970829b3fcfcf
-=======
 .form-group-calendar{
->>>>>>> DANITO
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 30px;
-  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-table {
   width: 100%;
+  margin-top: 120px;
+  margin-left: 200px;
+  border-collapse: collapse;
 }
 
-
-input,
-select,
-button {
-  padding: 15px;
+.appointment-table th,
+.appointment-table td {
+  padding: 20px;
+  font-size: 20px;
   border: 1px solid #ccc;
-  border-radius: 30px;
+  text-align: center;
 }
 
-button {
-  background-color: #FFFEDB;
-  color: #0E3863;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
+.appointment-table th {
   background-color: #fbd081;
 }
 
-.form-group {
+.appointment-table button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #FFFEDB;
+  color: #0E3863;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-table button:hover {
+  background-color: #fbd081;
+}
+
+.form-group-calendar {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.react-calendar {
+  font-size: 16px;
   width: 100%;
-<<<<<<< HEAD
   margin-top: 25px;
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> 06b814e323662f70656a38b3ad4970829b3fcfcf
-=======
-  margin-top:-25px;
->>>>>>> DANITO
+  max-width: 400px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
-.citas-reservadas {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 50px auto;
+.react-calendar__tile {
+  padding: 10px;
 }
 
-.citas-reservadas h2 {
-  width: 100%;
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 20px;
+.react-calendar__tile--range {
+  background-color: #f9e5c1;
 }
 
-.appointment {
-  width: calc(35.33% - 20px);
-  margin: 20px 10px;
-  text-align: center;
+.appointment-calendar {
+  max-width: 400px;
+  margin-right: 20px;
 }
 
-.cita-reservada h3 {
-  margin: 0;
+.toggle-calendar-button {
+  width: 250px; /* Ajusta el ancho según tus preferencias */
+  height: 60px; /* Ajusta la altura según tus preferencias */
+  padding: 10px; /* Ajusta el espacio interno según tus preferencias */
+  background-color: #f6b43a; /* Color de fondo del botón */
+  color: #0E3863; /* Color del texto del botón */
+  border: 1px solid #ccc; /* Borde del botón */
+  border-radius: 5px; /* Esquinas redondeadas del botón */
+  cursor: pointer;
   font-size: 25px;
+
 }
 
-.cita-reservada p {
-  font-size: 18px;
+.toggle-calendar-button:hover {
+  background-color: #e0e0e0; /* Cambia el color de fondo al pasar el ratón sobre el botón */
 }
 
-.appointment strong {
-  font-size: 20px;
+
+
+.tableReservas{
+  margin-right: 350px;
+    margin-top: -700px;
 }
 
-.appointment div {
-  font-size: 18px;
+.citas{
+  color:#0E3863;
+  margin-left: 350px;
+  margin-bottom: -100px;
+}
+
+
+.appointment-table {
+  width: 100%;
+  margin-left: 200px;
+  margin-bottom: 50px;
+  border-collapse: collapse;
+  
 }

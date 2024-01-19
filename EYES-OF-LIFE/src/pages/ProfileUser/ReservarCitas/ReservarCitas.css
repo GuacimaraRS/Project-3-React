@@ -1,0 +1,80 @@
+.my-dates-container2 {
+    
+  
+  }
+  .reservas2{
+    color:#0E3863;
+  }
+  .buttonReserva2{
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+  .appointment-form2 {
+    display:contents;
+    width: 100%;
+  
+  }
+  
+  .appointment-form2 input,
+  .appointment-form2 select {
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 3px solid #ccc;
+    border-radius: 15px;
+    font-size: 18px;
+  }
+  
+  .form-group-calendar2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group-calendar2 {
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  .react-calendar {
+    font-size: 20px;
+    width: 100%;
+    margin-top: 25px;
+    max-width: 400px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .react-calendar__tile2 {
+    padding: 10px;
+  }
+  
+  .react-calendar__tile--range2 {
+    background-color: #f9e5c1;
+  }
+  
+  .appointment-calendar2 {
+    max-width: 400px;
+    margin-right: 20px;
+  }
+  
+  .toggle-calendar-button2 {
+    width: 240px; /* Ajusta el ancho según tus preferencias */
+    height: 50px; /* Ajusta la altura según tus preferencias */
+    padding: 10px; /* Ajusta el espacio interno según tus preferencias */
+    background-color: #f6b43a; /* Color de fondo del botón */
+    color: #0E3863; /* Color del texto del botón */
+    border: 1px solid #ccc; /* Borde del botón */
+    border-radius: 5px; /* Esquinas redondeadas del botón */
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .toggle-calendar-button2:hover {
+    background-color: #e0e0e0; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+  }
+  
+  

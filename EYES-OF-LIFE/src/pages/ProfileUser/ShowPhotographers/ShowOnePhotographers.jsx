@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getOnePhotographer } from '../../../services/photographer';
 import './ShowOnePhotoGrapher.css' 
-import CardMedia from '@mui/material/CardMedia';
+import fotoDani from '../../../assets/images/dani.jpg'
 
 
 
@@ -31,8 +31,8 @@ const ShowOnePhotographer = () => {
     navigate(`/photographers/${photographer}/galery`);
   };
 
-  const handleReservaClick = () => {
-
+  const handleReservaClick = (photographer) => {
+    navigate(`/photographers/${photographer}/reservar`);
   };
 
   const handleEventClick = (photographer) => {
@@ -53,13 +53,7 @@ const ShowOnePhotographer = () => {
         <Link className="button-Back" to="#" onClick={() => window.history.back()}>Volver</Link>
       </div>
 
-      <CardMedia
-                component="img"
-                height="300"
-                image={user.imagen}
-                alt="Foto del fotografo" 
-               
-              />
+      <img className='fotoDani' src= {fotoDani} alt="Foto del fotografo"  />
              
 
       <div className="container">
