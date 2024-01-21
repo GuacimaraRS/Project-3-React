@@ -14,18 +14,18 @@
 .photo-grid {
     display: flex;
     flex-wrap: wrap;
-    margin: -10px; 
+    margin: 100px;
+    margin-top: -5px; 
 }
-
 .photo-item {
-    flex: 2 0 calc(13% - 30px); 
+    flex: 0 0 calc(33.33% - 20px); /* Cambiado para mostrar 3 imágenes por fila */
     margin: 10px;
-    overflow: hidden; 
+   
 }
 
 .photo-item img {
-    width: 280px;
-    height:140px;
+    width: 500px;
+    height:350px;
     display: block;
     object-fit: cover;
     display: block;

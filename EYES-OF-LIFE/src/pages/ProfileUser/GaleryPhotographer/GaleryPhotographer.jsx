@@ -42,9 +42,9 @@ const GaleryPhotographer = () => {
             <div>
                 <h1 className='h1'>Galeria</h1>
                 <div className="button-containerGalery">
-                    <button className="button-PhotoGrapher2" onClick={handleGaleryClick}>Galeria</button>
-                    <button className="button-PhotoGrapher2" onClick={handleReservaClick}>Reservar</button>
+                    <button className="button-PhotoGrapher2" onClick={handleGaleryClick}>Galeria</button> 
                     <button className="button-PhotoGrapher2" onClick={handleEventClick}>Eventos</button>
+                    <button className="button-PhotoGrapher2" onClick={handleReservaClick}>Reservar</button>
                     <Link className="button-Back2" to="#" onClick={() => window.history.back()}>Volver</Link>
                 </div>
             </div>

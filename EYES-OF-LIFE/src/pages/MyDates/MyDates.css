@@ -5,17 +5,7 @@
   flex-wrap: wrap;
 
 }
-.left-section {
-  flex: 1;
-  max-width: 800px; /* Ajusta según tus preferencias */
-  margin-right: 800px;
-}
 
-.right-section {
-  flex: 1;
-  max-width: 200px;
-  margin-top: 150px; /* Ajusta según tus preferencias */
-}
 .reservas{
   color:#0E3863;
 }
@@ -45,7 +35,10 @@
   display: flex;
   flex-direction: column;
 }
-
+.form-group{
+  font-size: 18px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
 .appointment-table {
   width: 100%;
   margin-top: 120px;
@@ -107,27 +100,28 @@
 }
 
 .toggle-calendar-button {
-  width: 250px; /* Ajusta el ancho según tus preferencias */
-  height: 60px; /* Ajusta la altura según tus preferencias */
-  padding: 10px; /* Ajusta el espacio interno según tus preferencias */
-  background-color: #f6b43a; /* Color de fondo del botón */
-  color: #0E3863; /* Color del texto del botón */
-  border: 1px solid #ccc; /* Borde del botón */
-  border-radius: 5px; /* Esquinas redondeadas del botón */
+  width: 250px;
+  height: 60px;
+  padding: 10px; 
+  background-color: #f6b43a; 
+  color: #0E3863; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 25px;
+  margin-left: 40px;
+  margin-bottom: 40px;
 
 }
 
 .toggle-calendar-button:hover {
-  background-color: #e0e0e0; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+  background-color: #e0e0e0; 
 }
 
 
 
 .tableReservas{
-  margin-right: 350px;
-    margin-top: -700px;
+  margin-right: 450px;
 }
 
 .citas{
@@ -144,3 +138,4 @@
   border-collapse: collapse;
   
 }
+

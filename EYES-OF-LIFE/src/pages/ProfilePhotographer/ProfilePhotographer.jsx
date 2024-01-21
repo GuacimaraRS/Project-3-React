@@ -83,7 +83,7 @@ const ProfilePhotographer = () => {
                 la belleza en lo cotidiano y la expresión de la individualidad.</p> 
               </div>
           </div>
-          <div className="right-section">
+          <div className="right-section2">
             <div className="info-box about-me">
               <h2 className="profile-name">Sobre Mí</h2>
                 <p className="profile-description">Con 5 años de experiencia en la industria, 

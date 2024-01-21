@@ -48,8 +48,8 @@ const ShowOnePhotographer = () => {
       
       <div className="button-container">
         <button className="button-PhotoGrapher" onClick={handleGaleryClick}>Galeria</button>
-        <button className="button-PhotoGrapher" onClick={handleReservaClick}>Reservar</button>
         <button className="button-PhotoGrapher" onClick={handleEventClick}>Eventos</button>
+        <button className="button-PhotoGrapher" onClick={handleReservaClick}>Reservar</button>
         <Link className="button-Back" to="#" onClick={() => window.history.back()}>Volver</Link>
       </div>
 

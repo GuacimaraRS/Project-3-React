@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import './MyDates.css';
+import {getAllReservations } from '../../services/MyReservations'
 
 const MyDates = () => {
   const location = useLocation();
@@ -14,6 +15,19 @@ const MyDates = () => {
   const [selectedPack, setSelectedPack] = useState(name.split(" ")[1])
   const [appointments, setAppointments] = useState([]);
   const [calendarVisible, setCalendarVisible] = useState(false);
+  const [appointBBDD, setApointBBDD] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const appoint = await getAllReservations();
+        setApointBBDD(appoint)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+  };
+  fetchData();
+}, []); 
 
   const toggleCalendarVisibility = () => {
     setCalendarVisible(!calendarVisible);
@@ -42,19 +56,67 @@ const MyDates = () => {
     localStorage.setItem('appointments', JSON.stringify(appointments));
   };
 
-  const resetForm = () => {
-    setFormName('');
-    setSelectedTime('');
-    setSelectedEvent('');
-    setSelectedPack('');
+  const handleDeleteRecord = (id) => {
+    const updatedAppointments2 = [...appointBBDD];
+    updatedAppointments2.splice(id, 1);
+    setApointBBDD(updatedAppointments2);
+    updateLocalCalendar(updatedAppointments2);
+   
   };
 
   return (   
   <>  
-  <div className="left-section">
-  <h1 className='reservas'>Reservar Citas</h1>
   <div className="my-dates-container">
-
+    <div className='tableReservas'>
+     <h1 className='citas'>Citas Reservadas</h1>
+      <table className="appointment-table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Hora</th>
+            <th>Evento</th>
+            <th>Pack</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {appointments.map((appointment, index2) => (
+            <tr key={index2}>
+              <td>{new Date(appointment.date).toLocaleDateString()}</td>
+              <td>{appointment.name}</td>
+              <td>{appointment.time}</td>
+              <td>{appointment.event}</td>
+              <td>{appointment.pack}</td>
+              <td>
+                <button type="button" onClick={() => handleDelete(index2)}>
+                  Eliminar Reserva
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+        <tbody>
+          {appointBBDD.map((appoint, index) => (
+            <tr key={index}>
+              <td>{appoint.day_event}</td>
+              <td>Guaci</td>
+              <td>{appoint.hour_event}</td>
+              <td>Boda</td>
+              <td>Premiun</td>
+              <td>
+                <button type="button" onClick={() => handleDeleteRecord(index)}>
+                  Eliminar Reserva
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      </div>
+      </div>
+      <div className="reserva-container">      
+      <h1 className='reservas'>Reservar Citas</h1>
         <button className="toggle-calendar-button" onClick={toggleCalendarVisibility}>
           {calendarVisible ? 'Ocultar Calendario' : 'Mostrar Calendario'}
         </button>
@@ -132,41 +194,10 @@ const MyDates = () => {
         </button>
         </div>
         </div>
+
       </div>
-      </div>
-   <div className="right-section">
-    <div className='tableReservas'>
-     <h1 className='citas'>Citas Reservadas</h1>
-      <table className="appointment-table">
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Nombre</th>
-            <th>Hora</th>
-            <th>Evento</th>
-            <th>Pack</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {appointments.map((appointment, index) => (
-            <tr key={index}>
-              <td>{new Date(appointment.date).toLocaleDateString()}</td>
-              <td>{appointment.name}</td>
-              <td>{appointment.time}</td>
-              <td>{appointment.event}</td>
-              <td>{appointment.pack}</td>
-              <td>
-                <button type="button" onClick={() => handleDelete(index)}>
-                  Eliminar Reserva
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </div>
-      </div>
+ 
+   
     </>
   );
 };

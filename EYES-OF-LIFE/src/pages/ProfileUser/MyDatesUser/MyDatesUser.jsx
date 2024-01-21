@@ -55,7 +55,7 @@ const MyDates = () => {
                   Eliminar Reserva
                 </button>
               </td>
-            </tr>
+              </tr>
           ))}
         </tbody>
       </table>
