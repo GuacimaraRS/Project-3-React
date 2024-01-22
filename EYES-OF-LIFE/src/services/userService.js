@@ -15,7 +15,11 @@ const getProfile = async () => {
 
 const getOneUser = async (id) => {
   try {
-    const { data } = await api.get(`/user/${id}`)
+    const { data } = await api.get(`/user/${id}`, {
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
+    })
     return data
   } catch (error) {
     console.error(error);

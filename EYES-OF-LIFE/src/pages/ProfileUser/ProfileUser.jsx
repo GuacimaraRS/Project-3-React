@@ -24,7 +24,7 @@ const ProfileUser = () => {
         email: user.user.email,
         phone: user.user.phone,
       };
-
+      
       await updateUser(updatedUserData);
       setEditing(false);
       console.log('Datos del usuario actualizados con éxito');
@@ -37,6 +37,7 @@ const ProfileUser = () => {
     const fetchData = async () => {
       try {
         const userData = await getProfile();
+        console.log(userData)
         setUser(userData);
         setLoading(false);
       } catch (error) {
