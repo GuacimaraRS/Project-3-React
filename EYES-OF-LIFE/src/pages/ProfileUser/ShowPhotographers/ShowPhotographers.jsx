@@ -4,18 +4,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import ButtonPhotographer from "../../../components/ButtonPhotographer/ButtonPhotographer"
-
 import { useState, useEffect } from 'react'
 import { getAllPhotographer } from '../../../services/photographer'
 import SearchAppBar from '../../../components/SearchBar/SearchBar';
 
 const ShowPhotographers = () => {
-
-
   const [photographers, setPhotographers] = useState([]);
   const [loading, setLoading] = useState(true);
-
-
 
   useEffect(() => {
     const fetchData = async () => {
