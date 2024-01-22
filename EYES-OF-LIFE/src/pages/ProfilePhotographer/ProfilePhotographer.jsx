@@ -1,59 +1,122 @@
-import React from "react";
-import "./ProfilePhotographer.css";
-import logoImage from "../../assets/images/dani.png";
+import { useState, useEffect } from 'react';
+import { getProfilePhotographer, updateProfilePhotographer } from '../../services/profilephotographer';
+import './ProfilePhotographer.css';
+import A from '../../assets/images/danito.jpg'
+
+
 
 const ProfilePhotographer = () => {
+  const [userData, setUserData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [editedAboutMe, setEditedAboutMe] = useState(''); // Cambiado de editedData a editedAboutMe
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const data = await getProfilePhotographer();
+        console.log(data);
+        setUserData(data);
+      } catch (error) {
+        console.error('Error al cargar los datos del perfil del fotógrafo:', error);
+        setError('Error al cargar los datos del perfil del fotógrafo. Consulta la consola para más detalles.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  const handleEditProfile = (section) => {
+    setEditMode(!editMode);
+    // Puedes inicializar los datos editados aquí según la sección
+    setEditedAboutMe(userData.user.infoPhotoGrapher.aboutMe || '');
+  };
+
+  const handleSaveProfile = async () => {
+    try {
+      // Actualiza el estado local con la información editada
+      setUserData((prevUserData) => ({
+        ...prevUserData,
+        user: {
+          ...prevUserData.user,
+          infoPhotoGrapher: {
+            ...prevUserData.user.infoPhotoGrapher,
+            aboutMe: editedAboutMe,
+          },
+        },
+      }));
+
+      // Llama a la función para actualizar la información en la base de datos
+      await updateProfilePhotographer({ aboutMe: editedAboutMe });
+      
+      // Finaliza el modo de edición
+      setEditMode(false);
+
+      console.log("Datos del usuario actualizados con éxito");
+    } catch (error) {
+      console.error("Error al actualizar el usuario:", error);
+    }
+  };
+  
+  
+
   return (
-    <div className="profile-container">
-      {/* Sección de información personal */}
-      <div className="personal-info">
-        <div className="left-column">
-          <img src={logoImage} alt="Mi Perfil" className="profile-image" />
-          <div className="personal-details">
-            <h2 className="profile-name">DANITO</h2>
-            <p className="profile-description">
-              Soy un apasionado fotógrafo con una visión única y creativa, especializado en retratos auténticos y emotivos.
-            </p>
+    <>
+      {loading ? (
+        <h1>Cargando...</h1>
+      ) : error ? (
+        <h1>{error}</h1>
+      ) : (
+        <>
+        <div className="profile-container">
+              <h1 className="profile-name">Hola Soy Danito</h1>
+              <img src={A} alt="Mi Perfil" className="profile-image" /> 
+              <button onClick={() => handleEditProfile('aboutMe')} className='buttonEdit'>Editar Perfil</button>
+               
+              <div className="personal-details">
+                <p className="profile-description">Mi enfoque artístico se centra en la creación de imágenes 
+                que no solo sean visualmente impactantes, sino que también transmitan emociones y 
+                narrativas profundas. Cada fotografía que capturo es una exploración de la conexión humana, 
+                la belleza en lo cotidiano y la expresión de la individualidad.</p> 
+              </div>
           </div>
-        </div>
+          <div className="right-section2">
+            <div className="info-box about-me">
+              <h2 className="profile-name">Sobre Mí</h2>
+                <p className="profile-description">Con 5 años de experiencia en la industria, 
+                he trabajado con una variedad de clientes y colaboradores. Mi habilidad para comprender 
+                las necesidades y deseos específicos de cada cliente me permite ofrecer resultados personalizados 
+                y satisfactorios.</p>
+            </div>
+          </div>
+            <div className="info-box skills">
+              <h2 className="profile-name">Habilidades Fotográficas</h2>
+                <p className="profile-description">Mis habilidades abarcan una amplia gama de géneros fotográficos,
+                 desde retratos emotivos hasta paisajes impresionantes. Mi experiencia incluye trabajos 
+                 en eventos, fotografía de estudio, fotografía documental y proyectos comerciales. 
+                 Cada especialidad contribuye a mi versatilidad y capacidad para adaptarme a diversas 
+                 situaciones.</p>
+            </div>
+            <div className="contact-info-container">
+                  <h2 >Contacto</h2>
+                  <div className="contact-info-content">
+                    <h3>Número de teléfono:</h3> <p className='contacto'>666777999</p>
+                    <h3>Edad:</h3>  <p className='contacto'>25 años</p>
+                    <h3>Estudios: </h3> <p className='contacto'>Fotógrafo Profesional</p>
+                    <h3>Dirección:</h3> <p className='contacto'>calle sinNombre 5</p>
+                    <h3>Años de experiencia profesional:</h3> <p className='contacto'>5 años</p>
+                  </div>
+                </div>
+            <div className="space-at-bottom"></div>
+    
 
-        {/* Sección de información adicional */}
-        <div className="additional-info">
-          {/* Recuadro "Sobre Mí" */}
-          <div className="info-box about-me">
-            <h2>Sobre Mí</h2>
-            <p className="profile-description">
-              Soy un apasionado fotógrafo con una visión única y creativa. Destaco en composición visual y manejo equipos de software de edición avanzados, así como de iluminación natural y artificial.
-              He participado en series de bajo presupuesto y en eventos de fotografía a gran escala.
-              Tengo un gran carisma a la hora de crear y transmitir sentimientos a través de la fotografía.
-              Siempre estoy en busca de aventuras y experiencias creativas.
-              ¡Estoy ansioso de ser partícipe de tu próxima historia visual!
-            </p>
-          </div>
-
-          {/* Recuadro con habilidades fotográficas */}
-          <div className="info-box skills">
-            <h2>Habilidades Fotográficas</h2>
-            <p>
-              Experiencia destacada en composición visual, técnica fotográfica.
-              Uso avanzado de equipos y software de edición.
-              Habilidad para capturar momentos emotivos y contar historias.
-              Fortalezas en la captura de paisajes naturales y urbanos, con especialización en fotografía documental, fotoperiodismo y eventos.
-            </p>
-          </div>
-
-          {/* Recuadro con información personal */}
-          <div className="info-box personal-info-box">
-            <h2>Información Personal</h2>
-            <p>Número de teléfono: 000-000-000</p>
-            <p>Edad: 32 años</p>
-            <p>Estudios: Estudios cursados en la Universidad Complutense de Madrid de Bellas Artes</p>
-            <p>Dirección: 454, Calle Serrato (Las Palmas de Gran Canaria)</p>
-            <p>Años de experiencia profesional: 4 años como amateur y 6 años como profesional</p>
-          </div>
-        </div>
-      </div>
-    </div>
+         </>
+     
+      )}
+    </>
   );
 };
 

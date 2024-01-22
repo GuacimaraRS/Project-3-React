@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,13 +12,15 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import './SignUp.css';
+
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        EYES OF LIFE
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -37,6 +39,7 @@ const defaultTheme = createTheme();
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      
     });
   };
 
@@ -119,7 +122,7 @@ const defaultTheme = createTheme();
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/sign-in" variant="body2" >
                   Already have an account? Sign in
                 </Link>
               </Grid>

@@ -1,0 +1,47 @@
+.button-containerGalery {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.button-containerGalery > * {
+    margin-right: 10px; 
+}
+
+.button-containerGalery > *:last-child {
+    margin-right: 0;
+}
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 100px;
+    margin-top: -5px; 
+}
+.photo-item {
+    flex: 0 0 calc(33.33% - 20px); /* Cambiado para mostrar 3 imágenes por fila */
+    margin: 10px;
+   
+}
+
+.photo-item img {
+    width: 500px;
+    height:350px;
+    display: block;
+    object-fit: cover;
+    display: block;
+    
+    
+}
+.button-PhotoGrapher2{
+    background-color: rgb(216, 183, 49);
+    font-size: 16px;
+    color: black
+}
+
+.button-Back2{
+    background-color: rgb(216, 183, 49);
+    font-size: 18px;
+    color: black;
+    padding: 15px;
+    text-align: center;
+    }

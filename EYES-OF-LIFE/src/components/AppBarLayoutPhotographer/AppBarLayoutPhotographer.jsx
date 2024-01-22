@@ -1,5 +1,5 @@
 // AppBar.js
-import React from "react";
+
 import "./AppBarLayoutPhotographer.css";
 import logoImage from "../../assets/images/eyes_of_life.png";
 import { Link } from "react-router-dom";
@@ -10,24 +10,25 @@ const AppBar = () => {
     <header className="app-bar">
       <div className="app-bar-container">
         <Link to="/">
-          <h1>EYES OF LIFE</h1>
+          <h1>EYES OF LIFE</h1> 
+          <img src={logoImage} alt="Logo" className="app-logo" />
         </Link>
-        <img src={logoImage} alt="Logo" className="app-logo" />
+       
         <div className="button-container">
           <Link to="/profile-photographer">
-            <button className="app-button">Profile</button>
+            <button className="app-button">Perfil</button>
           </Link>
           <Link to="/my-messages">
-            <button className="app-button">My Messages</button>
+            <button className="app-button">Mis Mensajes</button>
           </Link>
           <Link to="/my-dates">
-            <button className="app-button">My Dates</button>
+            <button className="app-button">Mis reservas</button>
           </Link>
           <Link to="/my-galery">
-            <button className="app-button">My Galery</button>
+            <button className="app-button">Mi Galeria</button>
           </Link>
           <Link to="/my-events">
-            <button className="app-button">My Events</button>
+            <button className="app-button">Mis Eventos</button>
           </Link>
           <BurguerMenuAppBar />
         </div>

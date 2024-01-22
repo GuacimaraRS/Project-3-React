@@ -1,88 +1,55 @@
-import React, { useState } from 'react';
-import b from '../../assets/images/b.jpeg';
-import bo from '../../assets/images/bo.jpeg';
-import bod from '../../assets/images/bod.jpeg';
-import boda from '../../assets/images/boda.jpeg';
-import Boda from '../../assets/images/Boda.jpg';
-import bodas from '../../assets/images/bodas.jpeg';
+import React from 'react';
 import './EventsImages.css';
+import { Link } from 'react-router-dom';
 
-const EventsImages = ({ tipo }) => {
-  const imagesByType = {
-    'Boda': [
-      
-      { image: b},
-      { image: bo},
-      { image: bod},
-      { image: boda},
-      { image: Boda},
-      { image: bodas},
-    ],
-    
-    'Cumpleaños': ['cumple1.jpg', 'cumple2.jpg', 'cumple3.jpg'],
-    'Bautizo': ['bautizo1.jpg', 'bautizo2.jpg', 'bautizo3.jpg'],
-    'Comuniones': ['comunion1.jpg', 'comunion2.jpg', 'comunion3.jpg'],
-    'Empresa': ['empresa1.jpg', 'empresa2.jpg', 'empresa3.jpg'],
-    'Bebes': ['bebes1.jpg', 'bebes2.jpg', 'bebes3.jpg'],
-  };
-
-  const images = imagesByType[tipo] || [];
-  const [currentImageFirstRow, setCurrentImageFirstRow] = useState(0);
-  const [currentImageSecondRow, setCurrentImageSecondRow] = useState(0);
-
-  const handleNextFirstRow = () => {
-    setCurrentImageFirstRow((prev) => (prev + 1) % firstRow.length);
-  };
-
-  const handlePrevFirstRow = () => {
-    setCurrentImageFirstRow((prev) => (prev - 1 + firstRow.length) % firstRow.length);
-  };
-
-  const handleNextSecondRow = () => {
-    setCurrentImageSecondRow((prev) => (prev + 1) % secondRow.length);
-  };
-
-  const handlePrevSecondRow = () => {
-    setCurrentImageSecondRow((prev) => (prev - 1 + secondRow.length) % secondRow.length);
-  };
-
-  const firstRow = images.slice(0, 3);
-  const secondRow = images.slice(3, 6);
+const EventsImages = () => {
+  const eventsData = [
+    {
+      name: 'Boda estándar',
+      prices: {
+        price: 500,
+        description: 'Cobertura fotográfica completa únicamente de la boda',
+        description2: 'Haz click aquí para seleccionar',
+      },
+    },
+    {
+      name: 'Boda Premium',
+      prices: {
+        price: 700,
+        description: 'Cobertura de la boda y la celebración combinadas',
+        description2: 'Haz click aquí para seleccionar',
+      },
+    },
+    {
+      name: 'Boda Deluxe',
+      prices: {
+        price: 1100,
+        description: 'Cobertura completa: Boda más celebración más luna de miel con un precio más reducido',
+        description2: 'Haz click aquí para seleccionar',
+      },
+    },
+  ];
 
   return (
-    <div>
-      <div className="image-events">
-        <div className="description-container">
-          <h2>Imágenes de Eventos: {tipo}</h2>
-        </div>
-        <div className="navigation-arrows navigation-arrows-first-row">
-          <button onClick={handlePrevFirstRow}>&lt;</button>
-          <button onClick={handleNextFirstRow}>&gt;</button>
-        </div>
-        <div className="image-row">
-          {/* Primer fila de imágenes */}
-          {firstRow.map((item, index) => (
-            <div key={index} className="image-item">
-              <p>{item.description}</p>
-              <img src={item.image} alt={`${tipo} ${index + 1}`} />
-            </div>
-          ))}
-        </div>
-        <div className="navigation-arrows navigation-arrows-second-row">
-          <button onClick={handlePrevSecondRow}>&lt;</button>
-          <button onClick={handleNextSecondRow}>&gt;</button>
-        </div>
-        <div className="image-row">
-          {/* Segunda fila de imágenes */}
-          {secondRow.map((item, index) => (
-            <div key={index} className="image-item">
-              <p>{item.description}</p>
-              <img src={item.image} alt={`${tipo} ${index + 4}`} />
-            </div>
-          ))}
-        </div>
-      </div>
+    <>
+   <h1 className='h1'>Packs de Boda</h1>
+    <div className="events-container"> 
+    
+      {eventsData.map((event, index) => (
+        <Link to={`/my-dates?event=${event.name}`} state={event} key={index} className="evento">
+          <div className="evento-card">
+            <h2>{event.name}</h2>
+            <ul>
+              <li>
+                <div>Precio: {event.prices.price}€</div>
+                <div>Descripción: {event.prices.description}</div>
+              </li>
+            </ul>
+          </div>
+        </Link>
+      ))}
     </div>
+    </>
   );
 };
 
