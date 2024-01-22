@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import './MyGalery.css';
 import { getPhotosGaleryPhotographer } from '../../services/getPhotosGaleryPhotographer';
 import ListPhotosGalery from './ListPhotosGalery/ListPhotosGalery';
-
 import UploadWidget from '../../components/UploadWidget/UploadWidget';
 
 const MyGalery = () => {
@@ -10,6 +9,7 @@ const MyGalery = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const[url, setUrl] = useState('')
+
 
   const imagenData = {
     title_image: title,
