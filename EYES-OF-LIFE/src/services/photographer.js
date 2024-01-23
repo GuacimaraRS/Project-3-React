@@ -3,7 +3,10 @@ import api from "./config"
 
 const addImagenPhotographer = async (body) => {
     try {
-        const { data } = await api.post(`/imagen/${body.galeryId}`,body)
+        const { data } = await api.post(`/imagen/${body.galeryId}`,body, {
+            headers: {
+              authorization: localStorage.token
+            }})
         console.log(data)
         return data
     } catch (error) {
